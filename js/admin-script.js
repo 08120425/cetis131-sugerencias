@@ -1,5 +1,5 @@
 // API Base URL
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://cetis131-sugerencias.onrender.com/api/suggestions';
 
 // Funciones de traducción
 function translateType(type) {
