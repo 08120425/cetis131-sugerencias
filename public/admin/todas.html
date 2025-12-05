@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas las Sugerencias - CETIS 131</title>
+    <link rel="stylesheet" href="../css/admin-styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>🎓 CETIS 131</h2>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="todas.html" class="nav-item active">
+                    <span class="icon">📝</span>
+                    Todas las Sugerencias
+                </a>
+                <a href="pendientes.html" class="nav-item">
+                    <span class="icon">⏳</span>
+                    Pendientes
+                </a>
+                <a href="ofensivas.html" class="nav-item">
+                    <span class="icon">⚠️</span>
+                    Contenido Inapropiado
+                </a>
+                <a href="resueltas.html" class="nav-item">
+                    <span class="icon">✅</span>
+                    Resueltas
+                </a>
+                <a href="../index.html" class="nav-item logout">
+                    <span class="icon">🏠</span>
+                    Volver al Inicio
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Todas las Sugerencias</h1>
+                <div class="user-info">
+                    <span>Admin</span>
+                    <div class="avatar">👤</div>
+                </div>
+            </header>
+
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label>Tipo:</label>
+                    <select id="filterType">
+                        <option value="">Todos</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="queja">Queja</option>
+                        <option value="felicitacion">Felicitación</option>
+                        <option value="reporte">Reporte</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Estado:</label>
+                    <select id="filterStatus">
+                        <option value="">Todos</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en_revision">En Revisión</option>
+                        <option value="investigacion">Investigación</option>
+                        <option value="resuelto">Resuelto</option>
+                        <option value="cerrado">Cerrado</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Buscar:</label>
+                    <input type="text" id="searchInput" placeholder="Email, asunto...">
+                </div>
+
+                <button onclick="applyFilters()" class="btn-primary">Filtrar</button>
+                <button onclick="clearFilters()" class="btn-secondary">Limpiar</button>
+            </div>
+
+            <!-- Stats Summary -->
+            <div class="summary-bar">
+                <div class="summary-item">
+                    <strong id="totalCount">0</strong> sugerencias en total
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Tipo</th>
+                            <th>Asunto</th>
+                            <th>Estado</th>
+                            <th>Ofensivo</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="suggestionsTable">
+                        <tr>
+                            <td colspan="7" class="loading">Cargando sugerencias...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Detalles -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="../js/admin-script.js"></script>
+    <script>
+        let allSuggestions = [];
+
+        async function loadSuggestions() {
+            try {
+                const response = await fetch('http://localhost:3000/api/suggestions');
+                const result = await response.json();
+
+                if (result.success) {
+                    allSuggestions = result.data;
+                    renderSuggestions(allSuggestions);
+                    updateTotalCount(allSuggestions.length);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al cargar las sugerencias', 'error');
+            }
+        }
+
+        function renderSuggestions(suggestions) {
+            const tbody = document.getElementById('suggestionsTable');
+
+            if (suggestions.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="no-data">No hay sugerencias</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = suggestions.map(s => `
+                <tr class="${s.hasOffensiveContent ? 'row-warning' : ''}">
+                    <td>${s.email}</td>
+                    <td><span class="badge badge-${s.type}">${translateType(s.type)}</span></td>
+                    <td class="subject-cell">${s.subject}</td>
+                    <td><span class="badge badge-${s.status}">${translateStatus(s.status)}</span></td>
+                    <td class="text-center">
+                        ${s.hasOffensiveContent ? 
+                            `<span class="badge badge-danger">${s.severity}</span>` : 
+                            '<span class="text-muted">No</span>'
+                        }
+                    </td>
+                    <td>${formatDate(s.createdAt)}</td>
+                    <td>
+                        <button onclick="viewDetails('${s._id}')" class="btn-icon" title="Ver detalles">👁️</button>
+                        <button onclick="editSuggestion('${s._id}')" class="btn-icon" title="Editar">✏️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function applyFilters() {
+            const type = document.getElementById('filterType').value;
+            const status = document.getElementById('filterStatus').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+
+            let filtered = allSuggestions;
+
+            if (type) {
+                filtered = filtered.filter(s => s.type === type);
+            }
+
+            if (status) {
+                filtered = filtered.filter(s => s.status === status);
+            }
+
+            if (search) {
+                filtered = filtered.filter(s => 
+                    s.email.toLowerCase().includes(search) ||
+                    s.subject.toLowerCase().includes(search) ||
+                    s.message.toLowerCase().includes(search)
+                );
+            }
+
+            renderSuggestions(filtered);
+            updateTotalCount(filtered.length);
+        }
+
+        function clearFilters() {
+            document.getElementById('filterType').value = '';
+            document.getElementById('filterStatus').value = '';
+            document.getElementById('searchInput').value = '';
+            renderSuggestions(allSuggestions);
+            updateTotalCount(allSuggestions.length);
+        }
+
+        function updateTotalCount(count) {
+            document.getElementById('totalCount').textContent = count;
+        }
+
+        async function viewDetails(id) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`);
+                const result = await response.json();
+
+                if (result.success) {
+                    showDetailsModal(result.data);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al cargar los detalles', 'error');
+            }
+        }
+
+        function showDetailsModal(suggestion) {
+            const modal = document.getElementById('detailModal');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <h2>Detalles de la Sugerencia</h2>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <strong>Email:</strong>
+                        <span>${suggestion.email}</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Tipo:</strong>
+                        <span class="badge badge-${suggestion.type}">${translateType(suggestion.type)}</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Estado:</strong>
+                        <span class="badge badge-${suggestion.status}">${translateStatus(suggestion.status)}</span>
+                    </div>
+                    <div class="detail-item full-width">
+                        <strong>Asunto:</strong>
+                        <span>${suggestion.subject}</span>
+                    </div>
+                    <div class="detail-item full-width">
+                        <strong>Mensaje:</strong>
+                        <p class="message-text">${suggestion.message}</p>
+                    </div>
+                    ${suggestion.hasOffensiveContent ? `
+                        <div class="detail-item full-width alert-danger">
+                            <strong>⚠️ Contenido Inapropiado Detectado</strong>
+                            <p>Palabras: ${suggestion.offensiveWords.join(', ')}</p>
+                            <p>Severidad: <strong>${suggestion.severity.toUpperCase()}</strong></p>
+                        </div>
+                    ` : ''}
+                    <div class="detail-item">
+                        <strong>Fecha:</strong>
+                        <span>${formatDate(suggestion.createdAt)}</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>IP:</strong>
+                        <span>${suggestion.ipAddress || 'N/A'}</span>
+                    </div>
+                    ${suggestion.notes ? `
+                        <div class="detail-item full-width">
+                            <strong>Notas:</strong>
+                            <p>${suggestion.notes}</p>
+                        </div>
+                    ` : ''}
+                </div>
+                <div class="modal-actions">
+                    <button onclick="closeModal()" class="btn-secondary">Cerrar</button>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        function editSuggestion(id) {
+            window.location.href = `editar.html?id=${id}`;
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Cargar al inicio
+        loadSuggestions();
+
+        // Auto-actualizar cada minuto
+        setInterval(loadSuggestions, 60000);
+    </script>
+</body>
+</html>

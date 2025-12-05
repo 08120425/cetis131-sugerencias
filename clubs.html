@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs y Deportes - CETIS 131</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <i class="fas fa-phone"></i> 899-929-3769 | <i class="fas fa-envelope"></i> cetis131.escolares@dgeti.sems.gob.mx
+            </div>
+        </div>
+    </div>
+
+<!-- Header Premium -->
+    <header>
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-img floating" aria-label="Logo CETIS 131">131</div>
+                <div class="school-name">
+                    <h1>CETIS 131</h1>
+                    <p>Miguel Hidalgo y Costilla</p>
+                </div>
+            </div>
+
+            <!-- Navegación Principal -->
+            <nav class="main-nav" aria-label="Navegación principal">
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                        
+                        <li>
+                            <a href="#informacion-escolar" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-school"></i> Información Escolar <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Información Escolar</li>
+                                <li><a href="Especialidades.html"><i class="fas fa-cogs"></i> Especialidades</a></li>
+                                <li><a href="#instalaciones"><i class="fas fa-building"></i> Instalaciones</a></li>
+                                <li><a href="clubs.html"><i class="fas fa-running"></i> Clubs y Deportes</a></li>
+                                <li><a href="servicio-y-practicas.html"><i class="fas fa-handshake"></i> Servicio Social/Prácticas</a></li>
+                                <li><a href="extraordinarios.html"><i class="fas fa-file-alt"></i> Extraordinarios</a></li>
+                                <li><a href="nuevo-ingreso.html"><i class="fas fa-user-plus"></i> Nuevo Ingreso</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#novedades" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-newspaper"></i> Novedades <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Novedades</li>
+                                <li><a href="calendario.html"><i class="fas fa-calendar-alt"></i> Calendarios</a></li>
+                                <li><a href="eventos.html"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                                <li><a href="/www/cajasug.html"><i class="fas fa-box"></i> Caja de Sugerencias</a></li>
+                                <li><a href="#avisos"><i class="fas fa-bell"></i> Avisos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#conocenos" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-info-circle"></i> Conócenos <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Conócenos</li>
+                                <li><a href="contactos.html"><i class="fas fa-address-book"></i> Contactos</a></li>
+                                <li><a href="acerca-de.html"><i class="fas fa-building"></i> Acerca de</a></li>
+                                <li><a href="avisos-privacidad.html"><i class="fas fa-shield-alt"></i> Avisos de Privacidad</a></li>
+                                <li><a href="reglamento.html"><i class="fas fa-book"></i> Reglamento</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <div class="header-actions">
+                <a href="nuevo-ingreso.html" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Ingreso 2026
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero hero-secondary">
+        <div class="hero-content">
+            <h2>Clubs y Equipos Deportivos</h2>
+            <p class="subtitle">Descubre y participa en nuestras actividades extracurriculares</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Equipos Deportivos -->
+        <section class="section reveal" id="deportes">
+            <div class="section-header">
+                <h2>Equipos Deportivos</h2>
+                <p>Forma parte de nuestros equipos representativos</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card club-card" onclick="openModal('futbol')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Fútbol</h3>
+                        <p>Equipo representativo con entrenamientos intensivos</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('voleibol')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-volleyball-ball"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Voleibol</h3>
+                        <p>Desarrolla trabajo en equipo y coordinación</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('softball')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Softball</h3>
+                        <p>Competencias inter-planteles y estatales</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clubs Culturales -->
+        <section class="section reveal" id="culturales">
+            <div class="section-header">
+                <h2>Clubs Culturales</h2>
+                <p>Explora tu creatividad y talento artístico</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card club-card" onclick="openModal('pintura')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pintura</h3>
+                        <p>Expresión artística y técnicas pictóricas</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('artesanias')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Artesanías</h3>
+                        <p>Trabajos manuales y tradiciones mexicanas</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('canto')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Canto</h3>
+                        <p>Técnica vocal y presentaciones musicales</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('literaria')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Creación Literaria</h3>
+                        <p>Poesía, narrativa y expresión escrita</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('declamacion')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Declamación</h3>
+                        <p>Arte de recitar poesía con expresión</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('baile')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Baile</h3>
+                        <p>Diversos géneros y coreografías</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('teatro')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Teatro</h3>
+                        <p>Actuación y producción teatral</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('danza')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Danza</h3>
+                        <p>Folclor mexicano y danzas regionales</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('fotografia')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Fotografía</h3>
+                        <p>Técnicas fotográficas y composición</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('dibujo')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dibujo</h3>
+                        <p>Técnicas de ilustración y diseño</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('nortena')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Música Norteña</h3>
+                        <p>Acordeón, bajo y tradición regional</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('oratoria')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Oratoria</h3>
+                        <p>Expresión oral y debate público</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('video')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Video Documental</h3>
+                        <p>Producción audiovisual y edición</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <div class="card club-card" onclick="openModal('rondalla')">
+                    <div class="club-icon-header">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Rondalla</h3>
+                        <p>Música tradicional con instrumentos de cuerda</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modales -->
+    <!-- Modal Fútbol -->
+    <div id="futbol" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('futbol')">&times;</span>
+            <h3><i class="fas fa-futbol"></i> Fútbol</h3>
+            <div class="description">
+                Nuestro equipo de fútbol representa al CETIS 131 en competencias inter-planteles y estatales. Los entrenamientos se realizan tres veces por semana con enfoque en técnica, estrategia y trabajo en equipo.
+            </div>
+            <div class="modal-info-grid">
+                <div class="modal-info-item">
+                    <i class="fas fa-clock"></i>
+                    <strong>Horario:</strong> Lunes, Miércoles y Viernes 3:00-5:00 PM
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Lugar:</strong> Cancha de fútbol principal
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-user"></i>
+                    <strong>Instructor:</strong> Prof. Carlos Ramírez
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Voleibol -->
+    <div id="voleibol" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('voleibol')">&times;</span>
+            <h3><i class="fas fa-volleyball-ball"></i> Voleibol</h3>
+            <div class="description">
+                El club de voleibol fomenta el trabajo en equipo, coordinación y resistencia física. Contamos con equipos varonil y femenil que compiten a nivel regional.
+            </div>
+            <div class="modal-info-grid">
+                <div class="modal-info-item">
+                    <i class="fas fa-clock"></i>
+                    <strong>Horario:</strong> Martes y Jueves 3:00-5:00 PM
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Lugar:</strong> Cancha techada
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-user"></i>
+                    <strong>Instructor:</strong> Prof. Laura Martínez
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Softball -->
+    <div id="softball" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('softball')">&times;</span>
+            <h3><i class="fas fa-baseball-ball"></i> Softball</h3>
+            <div class="description">
+                Equipo competitivo que participa en torneos estatales y nacionales. Desarrollamos habilidades de bateo, fildeo, lanzamiento y estrategia de juego.
+            </div>
+            <div class="modal-info-grid">
+                <div class="modal-info-item">
+                    <i class="fas fa-clock"></i>
+                    <strong>Horario:</strong> Lunes y Miércoles 4:00-6:00 PM
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Lugar:</strong> Campo deportivo exterior
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-user"></i>
+                    <strong>Instructor:</strong> Prof. Miguel Hernández
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pintura -->
+    <div id="pintura" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('pintura')">&times;</span>
+            <h3><i class="fas fa-palette"></i> Club de Pintura</h3>
+            <div class="description">
+                Espacio para desarrollar técnicas de pintura en diversos materiales: óleo, acrílico, acuarela y técnicas mixtas. Participamos en exposiciones escolares y concursos estatales de arte.
+            </div>
+            <div class="modal-info-grid">
+                <div class="modal-info-item">
+                    <i class="fas fa-clock"></i>
+                    <strong>Horario:</strong> Martes y Jueves 2:00-4:00 PM
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Lugar:</strong> Taller de artes
+                </div>
+                <div class="modal-info-item">
+                    <i class="fas fa-user"></i>
+                    <strong>Instructor:</strong> Mtra. Ana Rodríguez
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modales restantes (simplificados por espacio) -->
+    <div id="artesanias" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('artesanias')">&times;</span>
+            <h3><i class="fas fa-hands"></i> Artesanías</h3>
+            <div class="description">
+                Trabajos manuales y tradiciones mexicanas. Aprende técnicas ancestrales y contemporáneas.
+            </div>
+        </div>
+    </div>
+
+    <div id="canto" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('canto')">&times;</span>
+            <h3><i class="fas fa-microphone"></i> Canto</h3>
+            <div class="description">
+                Técnica vocal y presentaciones musicales en diversos géneros.
+            </div>
+        </div>
+    </div>
+
+    <div id="literaria" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('literaria')">&times;</span>
+            <h3><i class="fas fa-pen-fancy"></i> Creación Literaria</h3>
+            <div class="description">
+                Poesía, narrativa y expresión escrita. Desarrolla tu voz como escritor.
+            </div>
+        </div>
+    </div>
+
+    <div id="declamacion" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('declamacion')">&times;</span>
+            <h3><i class="fas fa-book-open"></i> Declamación</h3>
+            <div class="description">
+                Arte de recitar poesía con expresión y sentimiento.
+            </div>
+        </div>
+    </div>
+
+    <div id="baile" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('baile')">&times;</span>
+            <h3><i class="fas fa-music"></i> Baile</h3>
+            <div class="description">
+                Diversos géneros y coreografías modernas y tradicionales.
+            </div>
+        </div>
+    </div>
+
+    <div id="teatro" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('teatro')">&times;</span>
+            <h3><i class="fas fa-theater-masks"></i> Teatro</h3>
+            <div class="description">
+                Actuación y producción teatral. Desarrolla tus habilidades escénicas.
+            </div>
+        </div>
+    </div>
+
+    <div id="danza" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('danza')">&times;</span>
+            <h3><i class="fas fa-user-friends"></i> Danza</h3>
+            <div class="description">
+                Folclor mexicano y danzas regionales tradicionales.
+            </div>
+        </div>
+    </div>
+
+    <div id="fotografia" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('fotografia')">&times;</span>
+            <h3><i class="fas fa-camera"></i> Fotografía</h3>
+            <div class="description">
+                Técnicas fotográficas, composición y edición digital.
+            </div>
+        </div>
+    </div>
+
+    <div id="dibujo" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('dibujo')">&times;</span>
+            <h3><i class="fas fa-pencil-alt"></i> Dibujo</h3>
+            <div class="description">
+                Técnicas de ilustración, diseño y arte digital.
+            </div>
+        </div>
+    </div>
+
+    <div id="nortena" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('nortena')">&times;</span>
+            <h3><i class="fas fa-guitar"></i> Música Norteña</h3>
+            <div class="description">
+                Acordeón, bajo y tradición regional del norte de México.
+            </div>
+        </div>
+    </div>
+
+    <div id="oratoria" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('oratoria')">&times;</span>
+            <h3><i class="fas fa-comments"></i> Oratoria</h3>
+            <div class="description">
+                Expresión oral, debate público y habilidades comunicativas.
+            </div>
+        </div>
+    </div>
+
+    <div id="video" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('video')">&times;</span>
+            <h3><i class="fas fa-video"></i> Video Documental</h3>
+            <div class="description">
+                Producción audiovisual, edición y narrativa visual.
+            </div>
+        </div>
+    </div>
+
+    <div id="rondalla" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('rondalla')">&times;</span>
+            <h3><i class="fas fa-drum"></i> Rondalla</h3>
+            <div class="description">
+                Música tradicional con instrumentos de cuerda mexicanos.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-left">
+                <h3>CETIS 131</h3>
+                <p>Miguel Hidalgo y Costilla</p>
+                <div class="footer-contact" style="margin-top:18px;">
+                    <p><i class="fas fa-phone"></i>899-929-3769</p>
+                    <p><i class="fas fa-envelope"></i>cetis131.escolares@dgeti.sems.gob.mx</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Décima s/n Granjas Económicas del Norte, Reynosa, México, 88730</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PLANTEL</h3>
+                <ul>
+                    <li><a href="index.html#acerca">Acerca de</a></li>
+                    <li><a href="#mensaje">Mensaje del Director</a></li>
+                    <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                    <li><a href="#historia">Reseña Histórica</a></li>
+                    <li><a href="#egresados">Egresados Destacados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>ALUMNOS</h3>
+                <ul>
+                    <li><a href="#oferta">Oferta Educativa</a></li>
+                    <li><a href="servicio-y-practicas.html">Servicio Social</a></li>
+                    <li><a href="servicio-y-practicas.html">Prácticas Profesionales</a></li>
+                    <li><a href="#titulacion">Titulación</a></li>
+                    <li><a href="nuevo-ingreso.html">Requisitos Nuevo Ingreso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SITIOS DE INTERÉS</h3>
+                <ul>
+                    <li><a href="#calificaciones">Consulta de Calificaciones</a></li>
+                    <li><a href="#prepa-linea">Prepa en Línea</a></li>
+                    <li><a href="#dgeti">DGETI</a></li>
+                    <li><a href="#autoservicios">Portal de Autoservicios</a></li>
+                    <li><a href="#edumedia">Edumedia TICs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 CETIS 131 – Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

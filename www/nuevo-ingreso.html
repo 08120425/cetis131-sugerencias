@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos de Nuevo Ingreso - CETIS 131</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <i class="fas fa-phone"></i> 899-929-3769 | <i class="fas fa-envelope"></i> cetis131.escolares@dgeti.sems.gob.mx
+            </div>
+        </div>
+    </div>
+
+<!-- Header Premium -->
+    <header>
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-img floating" aria-label="Logo CETIS 131">131</div>
+                <div class="school-name">
+                    <h1>CETIS 131</h1>
+                    <p>Miguel Hidalgo y Costilla</p>
+                </div>
+            </div>
+
+            <!-- Navegación Principal -->
+            <nav class="main-nav" aria-label="Navegación principal">
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                        
+                        <li>
+                            <a href="#informacion-escolar" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-school"></i> Información Escolar <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Información Escolar</li>
+                                <li><a href="Especialidades.html"><i class="fas fa-cogs"></i> Especialidades</a></li>
+                                <li><a href="#instalaciones"><i class="fas fa-building"></i> Instalaciones</a></li>
+                                <li><a href="clubs.html"><i class="fas fa-running"></i> Clubs y Deportes</a></li>
+                                <li><a href="servicio-y-practicas.html"><i class="fas fa-handshake"></i> Servicio Social/Prácticas</a></li>
+                                <li><a href="extraordinarios.html"><i class="fas fa-file-alt"></i> Extraordinarios</a></li>
+                                <li><a href="nuevo-ingreso.html"><i class="fas fa-user-plus"></i> Nuevo Ingreso</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#novedades" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-newspaper"></i> Novedades <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Novedades</li>
+                                <li><a href="calendario.html"><i class="fas fa-calendar-alt"></i> Calendarios</a></li>
+                                <li><a href="eventos.html"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                                <li><a href="/www/cajasug.html"><i class="fas fa-box"></i> Caja de Sugerencias</a></li>
+                                <li><a href="#avisos"><i class="fas fa-bell"></i> Avisos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#conocenos" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-info-circle"></i> Conócenos <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Conócenos</li>
+                                <li><a href="contactos.html"><i class="fas fa-address-book"></i> Contactos</a></li>
+                                <li><a href="acerca-de.html"><i class="fas fa-building"></i> Acerca de</a></li>
+                                <li><a href="avisos-privacidad.html"><i class="fas fa-shield-alt"></i> Avisos de Privacidad</a></li>
+                                <li><a href="reglamento.html"><i class="fas fa-book"></i> Reglamento</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <div class="header-actions">
+                <a href="nuevo-ingreso.html" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Ingreso 2026
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Nuevo Ingreso 2026</h2>
+            <p class="subtitle">Toda la información que necesitas para unirte a nuestra comunidad educativa</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Estadísticas profesionales -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">📋</div>
+                <div class="stat-label">Documentación Completa</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">⚡</div>
+                <div class="stat-label">Proceso Eficiente</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">🎓</div>
+                <div class="stat-label">Inscripción Garantizada</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">✓</div>
+                <div class="stat-label">Atención Personalizada</div>
+            </div>
+        </div>
+
+        <!-- Alert -->
+        <div class="alert">
+            <h3>⚠️ ¡Importante!</h3>
+            <p><strong>Fecha límite:</strong> Todos los documentos deben entregarse completos antes del 30 de agosto de 2026. 
+            Asegúrate de traer originales y copias legibles. La documentación incompleta retrasará tu proceso de inscripción.</p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('documentos', this)">
+                    <span class="tab-icon">📋</span>
+                    <span class="tab-text">Documentos</span>
+                </button>
+                <button class="tab" onclick="showTab('proceso', this)">
+                    <span class="tab-icon">🔄</span>
+                    <span class="tab-text">Proceso</span>
+                </button>
+                <button class="tab" onclick="showTab('calendario', this)">
+                    <span class="tab-icon">📅</span>
+                    <span class="tab-text">Calendario</span>
+                </button>
+                <button class="tab" onclick="showTab('faq', this)">
+                    <span class="tab-icon">❓</span>
+                    <span class="tab-text">Preguntas Frecuentes</span>
+                </button>
+                <button class="tab" onclick="showTab('preregistro', this)">
+                    <span class="tab-icon">📝</span>
+                    <span class="tab-text">Pre-registro</span>
+                </button>
+                <button class="tab" onclick="showTab('ubicacion', this)">
+                    <span class="tab-icon">📍</span>
+                    <span class="tab-text">Ubicación</span>
+                </button>
+                <button class="tab" onclick="showTab('horarios', this)">
+                    <span class="tab-icon">🕐</span>
+                    <span class="tab-text">Horarios</span>
+                </button>
+                <button class="tab" onclick="showTab('contacto', this)">
+                    <span class="tab-icon">📞</span>
+                    <span class="tab-text">Contacto</span>
+                </button>
+            </div>
+
+            <!-- Tab: Documentos -->
+            <div id="documentos" class="tab-content active">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 25px; font-weight: 700;">Documentos Requeridos</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🆔 Documentos Personales</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Acta de nacimiento (original + 2 copias)</li>
+                                <li>CURP actualizada (2 copias)</li>
+                                <li>Comprobante de domicilio (máx. 3 meses)</li>
+                                <li>INE del padre/madre o tutor</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>📚 Documentos Académicos</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Certificado de Secundaria (original + 2 copias)</li>
+                                <li>Carta de buena conducta</li>
+                                <li>Boleta de calificaciones final</li>
+                                <li>Comprobante de asignación COMIPEMS</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>📸 Fotografías</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>8 fotografías tamaño infantil</li>
+                                <li>Fondo blanco, papel mate</li>
+                                <li>Ropa formal (camisa blanca)</li>
+                                <li>Sin lentes, sin retoque</li>
+                                <li>Recientes (máx. 6 meses)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🏥 Documentos Médicos</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Certificado médico oficial</li>
+                                <li>Cartilla de vacunación (copia)</li>
+                                <li>Comprobante de tipo de sangre</li>
+                                <li>Formato de datos médicos del plantel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Proceso -->
+            <div id="proceso" class="tab-content">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 40px; text-align: center; font-weight: 700;">Proceso de Inscripción</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-number">1</div>
+                        <div class="timeline-content">
+                            <h4>Entrega de Documentos</h4>
+                            <p>Acude a Servicios Escolares con tu expediente completo. Horario: 8:00 AM - 2:00 PM de lunes a viernes.</p>
+                            <p style="margin-top: 10px;"><strong>Tiempo:</strong> 30-45 minutos</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">2</div>
+                        <div class="timeline-content">
+                            <h4>Revisión y Validación</h4>
+                            <p>El personal verificará que toda tu documentación esté completa y correcta. Te entregarán formatos adicionales si son necesarios.</p>
+                            <p style="margin-top: 10px;"><strong>Tiempo:</strong> 2-3 días hábiles</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">3</div>
+                        <div class="timeline-content">
+                            <h4>Pago de Inscripción</h4>
+                            <p>Realiza el pago correspondiente en caja o banco autorizado. ¡No olvides conservar tu comprobante!</p>
+                            <p style="margin-top: 10px;"><strong>Tiempo:</strong> 15-20 minutos</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">4</div>
+                        <div class="timeline-content">
+                            <h4>Credencial y Fotografía</h4>
+                            <p>Visita Servicios Estudiantiles para tu fotografía oficial y recibe tu credencial temporal.</p>
+                            <p style="margin-top: 10px;"><strong>Tiempo:</strong> 15 minutos</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-number">5</div>
+                        <div class="timeline-content">
+                            <h4>Curso de Inducción</h4>
+                            <p>Asiste al curso obligatorio de inducción para nuevos alumnos. Se te informará la fecha y horario específicos.</p>
+                            <p style="margin-top: 10px;"><strong>Tiempo:</strong> 1 día completo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Calendario -->
+            <div id="calendario" class="tab-content">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 25px; font-weight: 700;">Calendario de Fechas Importantes</h2>
+                <div class="calendar-grid">
+                    <div class="calendar-card">
+                        <div class="date-header">
+                            <span class="date-range">01-15</span>
+                            <span class="date-month">AGO</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Periodo de Inscripción</div>
+                            <p class="card-description">Entrega de documentos y pago de inscripción en Servicios Escolares</p>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card">
+                        <div class="date-header">
+                            <span class="date-range">18-19</span>
+                            <span class="date-month">AGO</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Curso de Inducción</div>
+                            <p class="card-description">Asistencia obligatoria para todos los alumnos de nuevo ingreso</p>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card">
+                        <div class="date-header">
+                            <span class="date-day">20</span>
+                            <span class="date-month">AGO</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Examen de Ubicación</div>
+                            <p class="card-description">Evaluación diagnóstica de Matemáticas y Español</p>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card">
+                        <div class="date-header">
+                            <span class="date-day">22</span>
+                            <span class="date-month">AGO</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Inicio de Clases</div>
+                            <p class="card-description">Primer día del ciclo escolar 2026-2027</p>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card">
+                        <div class="date-header">
+                            <span class="date-range">23-25</span>
+                            <span class="date-month">AGO</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Entrega de Uniformes</div>
+                            <p class="card-description">Recepción de uniformes en el área de servicios estudiantiles</p>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card">
+                        <div class="date-header">
+                            <span class="date-day">30</span>
+                            <span class="date-month">AGO</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Fecha Límite</div>
+                            <p class="card-description">Último día para completar documentación pendiente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: FAQ -->
+            <div id="faq" class="tab-content">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 25px; font-weight: 700;">Preguntas Frecuentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>¿Cuál es el costo de inscripción?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>El costo de inscripción para el ciclo escolar 2026-2027 es de $1,500 MXN. Este pago incluye: credencial estudiantil, seguro escolar, agenda institucional y acceso a plataformas digitales. Los pagos se pueden realizar en efectivo, tarjeta o transferencia bancaria.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>¿Qué pasa si no tengo todos los documentos completos?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Si no cuentas con algún documento al momento de la inscripción, se te otorgará un plazo de 15 días hábiles para completar tu expediente. Sin embargo, tu inscripción quedará como "provisional" hasta que entregues todos los documentos requeridos. Es importante completar el proceso antes del 30 de agosto.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>¿Hay becas disponibles?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, el CETIS 131 cuenta con diversos programas de becas: Beca Benito Juárez (federal), becas de aprovechamiento académico, becas deportivas y becas socioeconómicas. Las solicitudes se realizan durante el primer mes del ciclo escolar en el departamento de Orientación Educativa.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>¿Cuáles son los horarios de clases?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>El CETIS 131 ofrece dos turnos: Matutino de 7:00 AM a 1:30 PM y Vespertino de 1:30 PM a 8:00 PM. El turno asignado dependerá de tu número de lista y disponibilidad de espacios. La asignación definitiva se informará durante el curso de inducción.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>¿Qué especialidades técnicas están disponibles?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>El CETIS 131 ofrece las siguientes especialidades: Programación, Contabilidad, Administración de Recursos Humanos, Electrónica, Soporte y Mantenimiento de Equipo de Cómputo y Ciberseguridad. La selección de especialidad se realiza al término del segundo semestre según tu promedio y preferencias.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>¿El certificado tiene validez oficial?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, el CETIS 131 es una institución educativa federal perteneciente a la DGETI (Dirección General de Educación Tecnológica Industrial) de la SEP. Al egresar obtienes un certificado de bachillerato tecnológico y una cédula profesional técnica con validez oficial en todo el país, que te permite continuar estudios universitarios o incorporarte al sector laboral.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Pre-registro -->
+            <div id="preregistro" class="tab-content">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 25px; font-weight: 700;">Formulario de Pre-registro</h2>
+                <div class="form-container">
+                    <p style="color: #4a5568; margin-bottom: 25px; line-height: 1.8;">
+                        Completa este formulario para iniciar tu proceso de pre-registro. Recibirás un correo electrónico 
+                        con la lista completa de documentos requeridos y las instrucciones para completar tu inscripción.
+                    </p>
+                    
+                    <form id="preregistroForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre Completo *</label>
+                                <input type="text" id="nombre" required placeholder="Ej: Juan Pérez García">
+                            </div>
+                            <div class="form-group">
+                                <label for="curp">CURP *</label>
+                                <input type="text" id="curp" required placeholder="18 caracteres" maxlength="18">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico *</label>
+                                <input type="email" id="email" required placeholder="ejemplo@correo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" required placeholder="(899) 123-4567">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="secundaria">Secundaria de Procedencia *</label>
+                                <input type="text" id="secundaria" required placeholder="Nombre de la secundaria">
+                            </div>
+                            <div class="form-group">
+                                <label for="promedio">Promedio General *</label>
+                                <input type="number" id="promedio" required step="0.01" min="6" max="10" placeholder="Ej: 8.5">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="especialidad">Especialidad de Interés *</label>
+                            <select id="especialidad" required>
+                                <option value="">Selecciona una especialidad</option>
+                                <option value="programacion">Programación</option>
+                                <option value="contabilidad">Contabilidad</option>
+                                <option value="rrhh">Administración de Recursos Humanos</option>
+                                <option value="electronica">Electrónica</option>
+                                <option value="soporte">Soporte y Mantenimiento de Equipo de Cómputo</option>
+                                <option value="ciberseguridad">Ciberseguridad</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="turno">Turno de Preferencia *</label>
+                            <select id="turno" required>
+                                <option value="">Selecciona un turno</option>
+                                <option value="matutino">Matutino (7:00 AM - 1:30 PM)</option>
+                                <option value="vespertino">Vespertino (1:30 PM - 8:00 PM)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="form-submit">Enviar Pre-registro</button>
+                    </form>
+                </div>
+
+                <div class="alert" style="margin-top: 30px;">
+                    <h3>📥 Descarga la Lista de Documentos</h3>
+                    <p>Una vez completado el pre-registro, descarga la lista completa de documentos requeridos para tu inscripción.</p>
+                </div>
+            </div>
+
+            <!-- Tab: Ubicación -->
+            <div id="ubicacion" class="tab-content">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 25px; font-weight: 700;">Ubicación y Cómo Llegar</h2>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.4892304!2d-98.2782!3d26.0689!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDA0JzA4LjAiTiA5OMKwMTYnNDEuNSJX!5e0!3m2!1ses!2smx!4v1234567890"
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="map-info">
+                    <h4>📍 Dirección Completa</h4>
+                    <p><strong>CETIS No. 131 "Miguel Hidalgo y Costilla"</strong></p>
+                    <p>Granjas Económicas del Norte</p>
+                    <p>C.P. 88730, Reynosa, Tamaulipas</p>
+                    <p>📞 Teléfono: (899) 929-3769</p>
+                    <p>✉️ Email: cetis131.escolares@dgeti.sems.gob.mx</p>
+                </div>
+
+                <div class="cards-grid" style="margin-top: 30px;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🚌 Transporte Público</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Ruta 1: Granjas - Centro</li>
+                                <li>Ruta 5: Col. Industrial - Granjas</li>
+                                <li>Ruta 12: Valle Hermoso - Granjas</li>
+                                <li>Parada frente al plantel</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🚗 En Automóvil</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Desde el Centro: 15 minutos</li>
+                                <li>Boulevard Morelos hacia el norte</li>
+                                <li>Estacionamiento disponible</li>
+                                <li>Entrada por puerta principal</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🚴 Referencias</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Cerca de Plaza Las Granjas</li>
+                                <li>A 5 min de la Col. Industrial</li>
+                                <li>Frente a la cancha deportiva</li>
+                                <li>Zona segura y accesible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Horarios -->
+            <div id="horarios" class="tab-content">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 25px; font-weight: 700;">Horarios de Atención por Departamento</h2>
+                
+                <div class="schedule-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Departamento</th>
+                                <th>Horario</th>
+                                <th>Días</th>
+                                <th>Extensión</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Servicios Escolares</td>
+                                <td>8:00 AM - 2:00 PM<br>2:00 PM - 8:00 PM</td>
+                                <td>Lunes a Viernes</td>
+                                <td>Ext. 101 / 102</td>
+                            </tr>
+                            <tr>
+                                <td>Control Escolar</td>
+                                <td>9:00 AM - 5:00 PM</td>
+                                <td>Lunes a Viernes</td>
+                                <td>Ext. 103</td>
+                            </tr>
+                            <tr>
+                                <td>Orientación Educativa</td>
+                                <td>8:00 AM - 6:00 PM</td>
+                                <td>Lunes a Viernes</td>
+                                <td>Ext. 105</td>
+                            </tr>
+                            <tr>
+                                <td>Recursos Financieros (Caja)</td>
+                                <td>8:00 AM - 3:00 PM</td>
+                                <td>Lunes a Viernes</td>
+                                <td>Ext. 104</td>
+                            </tr>
+                            <tr>
+                                <td>Subdirección Académica</td>
+                                <td>8:00 AM - 4:00 PM</td>
+                                <td>Lunes a Viernes</td>
+                                <td>Ext. 110</td>
+                            </tr>
+                            <tr>
+                                <td>Biblioteca</td>
+                                <td>7:30 AM - 7:30 PM</td>
+                                <td>Lunes a Viernes</td>
+                                <td>Ext. 106</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert" style="margin-top: 30px;">
+                    <h3>📅 Días Inhábiles y Periodos Vacacionales</h3>
+                    <p><strong>Periodo de Verano:</strong> Del 15 de julio al 15 de agosto (solo atención en horario matutino)<br>
+                    <strong>Periodo de Invierno:</strong> Del 20 de diciembre al 6 de enero<br>
+                    <strong>Semana Santa:</strong> Según calendario oficial de SEP<br>
+                    <strong>Días Festivos:</strong> Se respetan los días festivos oficiales del calendario escolar</p>
+                </div>
+            </div>
+
+            <!-- Tab: Contacto -->
+            <div id="contacto" class="tab-content">
+                <h2 style="color: #1a202c; font-size: 2em; margin-bottom: 25px; font-weight: 700;">Información de Contacto</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>📋 Servicios Escolares</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Lunes a Viernes</li>
+                                <li>Matutino: 8:00 AM - 2:00 PM</li>
+                                <li>Vespertino: 2:00 PM - 8:00 PM</li>
+                                <li>Ext. 101 / 102</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🎯 Control Escolar</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Lunes a Viernes</li>
+                                <li>9:00 AM - 5:00 PM</li>
+                                <li>Extensión: 103</li>
+                                <li>control@cetis131.edu.mx</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>💡 Orientación Educativa</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Asesoría sobre carreras técnicas</li>
+                                <li>Horario: 8:00 AM - 6:00 PM</li>
+                                <li>Extensión: 105</li>
+                                <li>orientacion@cetis131.edu.mx</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>📍 Ubicación</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Granjas Económicas del Norte</li>
+                                <li>Reynosa, Tamaulipas</li>
+                                <li>C.P. 88730</li>
+                                <li>📞 (899) 929-3769</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>¿Listo para comenzar?</h2>
+            <p>Prepara tus documentos y completa tu inscripción</p>
+            <button class="btn" onclick="alert('Para más información contacta a:\n📞 (899) 929-3769\n✉️ cetis131.escolares@dgeti.sems.gob.mx')">
+                Contactar Ahora
+            </button>
+            <button class="btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                Volver Arriba
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-left">
+                <h3>CETIS 131</h3>
+                <p>Miguel Hidalgo y Costilla</p>
+                <div class="footer-contact" style="margin-top:18px;">
+                    <p><i class="fas fa-phone"></i>899-929-3769</p>
+                    <p><i class="fas fa-envelope"></i>cetis131.escolares@dgeti.sems.gob.mx</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Décima s/n Granjas Económicas del Norte, Reynosa, México, 88730</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PLANTEL</h3>
+                <ul>
+                    <li><a href="index.html#acerca">Acerca de</a></li>
+                    <li><a href="#mensaje">Mensaje del Director</a></li>
+                    <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                    <li><a href="#historia">Reseña Histórica</a></li>
+                    <li><a href="#egresados">Egresados Destacados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>ALUMNOS</h3>
+                <ul>
+                    <li><a href="#oferta">Oferta Educativa</a></li>
+                    <li><a href="#servicio-social">Servicio Social</a></li>
+                    <li><a href="#practicas">Servicio Profesional</a></li>
+                    <li><a href="#titulacion">Titulación</a></li>
+                    <li><a href="nuevo-ingreso.html">Requisitos Nuevo Ingreso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SITIOS DE INTERÉS</h3>
+                <ul>
+                    <li><a href="#calificaciones">Consulta de Calificaciones</a></li>
+                    <li><a href="#prepa-linea">Prepa en Línea</a></li>
+                    <li><a href="#dgeti">DGETI</a></li>
+                    <li><a href="#autoservicios">Portal de Autoservicios</a></li>
+                    <li><a href="#edumedia">Edumedia TICs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 CETIS 131 – Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Social, Prácticas y Sistema Dual - CETIS 131</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <i class="fas fa-phone"></i> 899-929-3769 | <i class="fas fa-envelope"></i> cetis131.escolares@dgeti.sems.gob.mx
+            </div>
+        </div>
+    </div>
+
+<!-- Header Premium -->
+    <header>
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-img floating" aria-label="Logo CETIS 131">131</div>
+                <div class="school-name">
+                    <h1>CETIS 131</h1>
+                    <p>Miguel Hidalgo y Costilla</p>
+                </div>
+            </div>
+
+            <!-- Navegación Principal -->
+            <nav class="main-nav" aria-label="Navegación principal">
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                        
+                        <li>
+                            <a href="#informacion-escolar" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-school"></i> Información Escolar <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Información Escolar</li>
+                                <li><a href="Especialidades.html"><i class="fas fa-cogs"></i> Especialidades</a></li>
+                                <li><a href="#instalaciones"><i class="fas fa-building"></i> Instalaciones</a></li>
+                                <li><a href="clubs.html"><i class="fas fa-running"></i> Clubs y Deportes</a></li>
+                                <li><a href="servicio-y-practicas.html"><i class="fas fa-handshake"></i> Servicio Social/Prácticas</a></li>
+                                <li><a href="extraordinarios.html"><i class="fas fa-file-alt"></i> Extraordinarios</a></li>
+                                <li><a href="nuevo-ingreso.html"><i class="fas fa-user-plus"></i> Nuevo Ingreso</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#novedades" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-newspaper"></i> Novedades <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Novedades</li>
+                                <li><a href="calendario.html"><i class="fas fa-calendar-alt"></i> Calendarios</a></li>
+                                <li><a href="eventos.html"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                                <li><a href="/www/cajasug.html"><i class="fas fa-box"></i> Caja de Sugerencias</a></li>
+                                <li><a href="#avisos"><i class="fas fa-bell"></i> Avisos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#conocenos" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-info-circle"></i> Conócenos <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Conócenos</li>
+                                <li><a href="contactos.html"><i class="fas fa-address-book"></i> Contactos</a></li>
+                                <li><a href="acerca-de.html"><i class="fas fa-building"></i> Acerca de</a></li>
+                                <li><a href="avisos-privacidad.html"><i class="fas fa-shield-alt"></i> Avisos de Privacidad</a></li>
+                                <li><a href="reglamento.html"><i class="fas fa-book"></i> Reglamento</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <div class="header-actions">
+                <a href="nuevo-ingreso.html" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Ingreso 2026
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-secondary">
+        <div class="hero-content">
+            <h2>Servicio Social, Prácticas y Sistema Dual</h2>
+            <p class="subtitle">Formación integral para tu futuro profesional</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" onclick="openTabService(event, 'servicio')">
+                    <span class="tab-icon"><i class="fas fa-hands-helping"></i></span>
+                    <span class="tab-text">Servicio Social</span>
+                </button>
+                <button class="tab" onclick="openTabService(event, 'practicas')">
+                    <span class="tab-icon"><i class="fas fa-briefcase"></i></span>
+                    <span class="tab-text">Prácticas Profesionales</span>
+                </button>
+                <button class="tab" onclick="openTabService(event, 'dual')">
+                    <span class="tab-icon"><i class="fas fa-industry"></i></span>
+                    <span class="tab-text">Sistema Dual</span>
+                </button>
+            </div>
+
+            <!-- SERVICIO SOCIAL -->
+            <div id="servicio" class="tab-content active">
+                <section class="section reveal">
+                    <div class="section-header">
+                        <h2><i class="fas fa-hands-helping"></i> Servicio Social</h2>
+                        <p>Retribuye a la sociedad aplicando tus conocimientos en beneficio de la comunidad</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> ¿Qué es el Servicio Social?</h3>
+                        <p>El Servicio Social inicia en <strong>quinto semestre</strong> y requiere cumplir <strong>480 horas</strong> en instituciones públicas. Su objetivo es retribuir a la sociedad aplicando tus conocimientos en beneficio de la comunidad.</p>
+                    </div>
+
+                    <div class="content-grid">
+                        <div class="info-block">
+                            <h4><i class="fas fa-clipboard-check"></i> Requisitos Generales</h4>
+                            <ul id="req-servicio">
+                                <li>Estar inscrito en 5° semestre</li>
+                                <li>Promedio mínimo de 8.0</li>
+                                <li>Carta de presentación oficial del CETIS 131</li>
+                                <li>Identificación oficial (INE o credencial escolar)</li>
+                                <li>Comprobante de domicilio (no mayor a 3 meses)</li>
+                                <li>2 fotografías tamaño infantil</li>
+                                <li>Seguro médico vigente (IMSS, ISSSTE o particular)</li>
+                                <li><strong>Vestimenta:</strong> Pantalón de vestir negro o azul marino, camisa blanca, zapatos cerrados</li>
+                                <li>No adeudar materias</li>
+                                <li>Constancia de no antecedentes penales</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-block">
+                            <h4><i class="fas fa-building"></i> Instituciones Permitidas</h4>
+                            <ul>
+                                <li><strong>Escuela Primaria "Benito Juárez"</strong> – Apoyo en informática</li>
+                                <li><strong>Secundaria Técnica #45</strong> – Laboratorios de programación</li>
+                                <li><strong>Centro de Salud "Dr. José María Morelos"</strong> – Digitalización</li>
+                                <li><strong>Hospital General Regional</strong> – Mantenimiento de equipos</li>
+                                <li><strong>Biblioteca Municipal</strong> – Catalogación digital</li>
+                                <li><strong>Casa del Adulto Mayor</strong> – Clases de computación</li>
+                                <li><strong>Centro Comunitario</strong> – Alfabetización digital</li>
+                                <li><strong>Clínica ISSSTE Local</strong> – Soporte sistemas</li>
+                                <li><strong>DIF Municipal</strong> – Bases de datos</li>
+                            </ul>
+                            <div class="warning">
+                                <strong><i class="fas fa-exclamation-triangle"></i> Prohibido:</strong> Empresas privadas, consultorios particulares, negocios familiares, ONGs con fines de lucro.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documentos Requeridos -->
+                    <div class="docs-section">
+                        <h3 class="docs-header"><i class="fas fa-folder-open"></i> Documentos Requeridos</h3>
+                        <div class="docs-grid">
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-id-card"></i></div>
+                                <h4>Documentos Personales</h4>
+                                <ul>
+                                    <li>Acta de nacimiento (original + 2 copias)</li>
+                                    <li>CURP actualizada (2 copias)</li>
+                                    <li>Comprobante de domicilio (máx. 3 meses)</li>
+                                    <li>INE del padre/madre o tutor</li>
+                                    <li>Carta de no antecedentes penales</li>
+                                </ul>
+                            </div>
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <h4>Documentos Académicos</h4>
+                                <ul>
+                                    <li>Certificado de Secundaria (original + 2 copias)</li>
+                                    <li>Carta de buena conducta</li>
+                                    <li>Boleta de calificaciones final</li>
+                                    <li>Constancia de estudios vigente</li>
+                                    <li>Kardex sellado</li>
+                                </ul>
+                            </div>
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-camera"></i></div>
+                                <h4>Fotografías</h4>
+                                <ul>
+                                    <li>8 fotografías tamaño infantil</li>
+                                    <li>Fondo blanco, papel mate</li>
+                                    <li>Ropa formal (camisa blanca)</li>
+                                    <li>Sin lentes, sin retoque</li>
+                                    <li>Recientes (máx. 6 meses)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdf-btn-container">
+                            <button class="pdf-btn" onclick="generarPDF('servicio')">
+                                <i class="fas fa-file-pdf"></i> Descargar Todo en PDF
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PRÁCTICAS PROFESIONALES -->
+            <div id="practicas" class="tab-content">
+                <section class="section reveal">
+                    <div class="section-header">
+                        <h2><i class="fas fa-briefcase"></i> Prácticas Profesionales</h2>
+                        <p>Aplica tus conocimientos en un entorno laboral real</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> ¿Qué son las Prácticas Profesionales?</h3>
+                        <p>Se realizan en <strong>sexto semestre</strong> y requieren <strong>mínimo 240 horas</strong> en empresas relacionadas con tu especialidad. Son obligatorias para titularte y te permiten aplicar todo lo aprendido en un entorno real.</p>
+                    </div>
+
+                    <div class="content-grid">
+                        <div class="info-block">
+                            <h4><i class="fas fa-clipboard-check"></i> Requisitos Generales</h4>
+                            <ul id="req-practicas">
+                                <li>Estar en 6° semestre</li>
+                                <li>Todas las materias técnicas aprobadas</li>
+                                <li>Carta de aceptación de la empresa</li>
+                                <li>Seguro contra accidentes (facultativo)</li>
+                                <li>Bitácora oficial sellada semanalmente</li>
+                                <li><strong>Vestimenta:</strong> Polo institucional, pantalón industrial, zapatos de seguridad</li>
+                                <li>Constancia de no adeudo</li>
+                                <li>Carta responsiva de padres</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-block">
+                            <h4><i class="fas fa-clock"></i> Información Importante</h4>
+                            <ul>
+                                <li><strong>Duración:</strong> Mínimo 240 horas</li>
+                                <li><strong>Periodo:</strong> Durante 6° semestre</li>
+                                <li><strong>Horario:</strong> Flexible según empresa</li>
+                                <li><strong>Evaluación:</strong> Por empresa y coordinador</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Documentos -->
+                    <div class="docs-section">
+                        <h3 class="docs-header"><i class="fas fa-folder-open"></i> Documentos Requeridos</h3>
+                        <div class="docs-grid">
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-id-card"></i></div>
+                                <h4>Documentos Personales</h4>
+                                <ul>
+                                    <li>Acta de nacimiento (original + 2 copias)</li>
+                                    <li>CURP actualizada (2 copias)</li>
+                                    <li>INE del alumno (si es mayor de edad)</li>
+                                    <li>Comprobante de domicilio</li>
+                                    <li>Carta responsiva de padres</li>
+                                    <li>Seguro facultativo</li>
+                                </ul>
+                            </div>
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <h4>Documentos Académicos</h4>
+                                <ul>
+                                    <li>Certificado parcial de estudios</li>
+                                    <li>Kardex oficial sellado</li>
+                                    <li>Constancia de no adeudo</li>
+                                    <li>Carta de aceptación de empresa</li>
+                                    <li>Formato de bitácora oficial</li>
+                                    <li>Plan de trabajo firmado</li>
+                                </ul>
+                            </div>
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-camera"></i></div>
+                                <h4>Fotografías</h4>
+                                <ul>
+                                    <li>6 fotografías tamaño credencial</li>
+                                    <li>Fondo blanco, papel mate</li>
+                                    <li>Camisa blanca, corbata</li>
+                                    <li>Sin lentes, sin retoque</li>
+                                    <li>Recientes (máx. 3 meses)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdf-btn-container">
+                            <button class="pdf-btn" onclick="generarPDF('practicas')">
+                                <i class="fas fa-file-pdf"></i> Descargar Todo en PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Empresas por Especialidad -->
+                    <div class="section reveal">
+                        <h3 style="text-align: center; margin: 40px 0 20px; color: var(--wine);">
+                            <i class="fas fa-building"></i> Empresas por Especialidad
+                        </h3>
+
+                        <div class="specialty-grid">
+                            <!-- Programación -->
+                            <div class="specialty-card">
+                                <div class="specialty-header"><i class="fas fa-laptop-code"></i> Programación</div>
+                                <div class="specialty-body">
+                                    <ul>
+                                        <li><strong>TechNova Solutions</strong> – Desarrollo de apps móviles</li>
+                                        <li><strong>CódigoFácil S.A.</strong> – Sitios web con React</li>
+                                        <li><strong>AppMóvil del Centro</strong> – Backend con Python</li>
+                                        <li><strong>StartUp Lab 131</strong> – Proyectos reales GitHub</li>
+                                        <li><strong>DesarrolloWeb Pro</strong> – Bases de datos MySQL</li>
+                                        <li><strong>InnovaCode México</strong> – Automatización de procesos</li>
+                                        <li><strong>SoftDev Industrial</strong> – Integración de APIs</li>
+                                        <li><strong>CodeMaster 131</strong> – Software administrativo</li>
+                                        <li><strong>DevZone Local</strong> – Dashboards con JavaScript</li>
+                                        <li><strong>Programación Ágil S.A.</strong> – Metodología Scrum</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Administración R.H. -->
+                            <div class="specialty-card">
+                                <div class="specialty-header"><i class="fas fa-users"></i> Administración R.H.</div>
+                                <div class="specialty-body">
+                                    <ul>
+                                        <li><strong>Grupo Industrial del Centro</strong> – Nóminas y control</li>
+                                        <li><strong>Recursos Humanos S.A.</strong> – Reclutamiento</li>
+                                        <li><strong>Empresa Textil 131</strong> – Capacitación</li>
+                                        <li><strong>Manufactura Local</strong> – Prestaciones</li>
+                                        <li><strong>HR Pro México</strong> – Evaluación desempeño</li>
+                                        <li><strong>Admin RH Industrial</strong> – Contratos</li>
+                                        <li><strong>Personal 360</strong> – Clima laboral</li>
+                                        <li><strong>RH Digital</strong> – Software HR</li>
+                                        <li><strong>Consultoría Laboral</strong> – Auditorías</li>
+                                        <li><strong>Capital Humano CETIS</strong> – Planes de carrera</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- S.M.E.C. -->
+                            <div class="specialty-card">
+                                <div class="specialty-header"><i class="fas fa-cogs"></i> S.M.E.C.</div>
+                                <div class="specialty-body">
+                                    <ul>
+                                        <li><strong>Industria Metalúrgica</strong> – Mantenimiento CNC</li>
+                                        <li><strong>Planta Automotriz</strong> – Soldadura y ensamblaje</li>
+                                        <li><strong>Manufactura 131</strong> – Control de calidad</li>
+                                        <li><strong>Fábrica de Piezas</strong> – Operación de tornos</li>
+                                        <li><strong>Maquinados Pro</strong> – Lectura de planos</li>
+                                        <li><strong>SMEC Industrial</strong> – Mantenimiento preventivo</li>
+                                        <li><strong>Producción Local</strong> – Líneas de ensamble</li>
+                                        <li><strong>Metal Mecánica</strong> – Fabricación de moldes</li>
+                                        <li><strong>Autopartes CETIS</strong> – Pruebas de resistencia</li>
+                                        <li><strong>Taller SMEC</strong> – Reparación de equipos</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Mantenimiento Industrial -->
+                            <div class="specialty-card">
+                                <div class="specialty-header"><i class="fas fa-tools"></i> Mantenimiento Industrial</div>
+                                <div class="specialty-body">
+                                    <ul>
+                                        <li><strong>Planta Eléctrica</strong> – Transformadores</li>
+                                        <li><strong>Industria Química</strong> – Reparación de bombas</li>
+                                        <li><strong>Fábrica de Alimentos</strong> – Mantenimiento líneas</li>
+                                        <li><strong>Refinería Local</strong> – Inspección válvulas</li>
+                                        <li><strong>Mantenimiento 131</strong> – Diagnóstico fallas</li>
+                                        <li><strong>Servicios Industriales</strong> – Lubricación</li>
+                                        <li><strong>Planta de Agua</strong> – Reparación motores</li>
+                                        <li><strong>Taller Eléctrico</strong> – Instalación tableros</li>
+                                        <li><strong>Mantenimiento CETIS</strong> – Pruebas seguridad</li>
+                                        <li><strong>Industria Pesada</strong> – Mantenimiento predictivo</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Ciberseguridad -->
+                            <div class="specialty-card">
+                                <div class="specialty-header"><i class="fas fa-shield-alt"></i> Ciberseguridad</div>
+                                <div class="specialty-body">
+                                    <ul>
+                                        <li><strong>Seguridad Digital S.A.</strong> – Vulnerabilidades</li>
+                                        <li><strong>CyberGuard México</strong> – Monitoreo de redes</li>
+                                        <li><strong>Protección Datos</strong> – Firewalls</li>
+                                        <li><strong>Ciber 131</strong> – Pruebas de penetración</li>
+                                        <li><strong>Seguridad IT</strong> – Respuesta a incidentes</li>
+                                        <li><strong>Defensa Digital</strong> – Auditorías</li>
+                                        <li><strong>Crypto Local</strong> – Cifrado información</li>
+                                        <li><strong>CyberLab</strong> – Análisis forense</li>
+                                        <li><strong>Red Segura</strong> – Configuración VPN</li>
+                                        <li><strong>CETIS Cyber</strong> – Capacitación phishing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SISTEMA DUAL -->
+            <div id="dual" class="tab-content">
+                <section class="section reveal">
+                    <div class="section-header">
+                        <h2><i class="fas fa-industry"></i> Sistema Dual</h2>
+                        <p>Estudia y trabaja al mismo tiempo con salario</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> ¿Qué es el Sistema Dual?</h3>
+                        <p>El Sistema Dual es un modelo de formación donde <strong>estudias y trabajas al mismo tiempo</strong>. Inicia en <strong>5° o 6° semestre</strong> y combina clases en el CETIS 131 con <strong>práctica remunerada en empresas con convenio</strong>. Recibes un sueldo, experiencia laboral real y créditos académicos.</p>
+                    </div>
+
+                    <div class="content-grid">
+                        <div class="info-block">
+                            <h4><i class="fas fa-clipboard-check"></i> Requisitos Generales</h4>
+                            <ul id="req-dual">
+                                <li>Estar en 5° o 6° semestre</li>
+                                <li>Promedio mínimo de 8.5</li>
+                                <li>Carta de aceptación de la empresa</li>
+                                <li>Entrevista con coordinador</li>
+                                <li>Seguro social activo (IMSS)</li>
+                                <li>Horario compatible (4-6 horas diarias)</li>
+                                <li><strong>Vestimenta:</strong> Uniforme industrial completo</li>
+                                <li>Carta responsiva de padres</li>
+                                <li>Constancia de no adeudo</li>
+                                <li>Compromiso de asistencia 90%</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-block">
+                            <h4><i class="fas fa-star"></i> Beneficios</h4>
+                            <ul>
+                                <li><strong>Salario mensual:</strong> Variable según empresa</li>
+                                <li><strong>Seguro social:</strong> Cobertura completa IMSS</li>
+                                <li><strong>Experiencia laboral:</strong> Desde 5° semestre</li>
+                                <li><strong>Créditos académicos:</strong> Validados como prácticas</li>
+                                <li><strong>Posibilidad de empleo:</strong> Al egresar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Documentos -->
+                    <div class="docs-section">
+                        <h3 class="docs-header"><i class="fas fa-folder-open"></i> Documentos Requeridos</h3>
+                        <div class="docs-grid">
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-id-card"></i></div>
+                                <h4>Documentos Personales</h4>
+                                <ul>
+                                    <li>Acta de nacimiento (original + 2 copias)</li>
+                                    <li>CURP actualizada (2 copias)</li>
+                                    <li>INE del alumno (si es mayor de edad)</li>
+                                    <li>Comprobante de domicilio</li>
+                                    <li>Carta responsiva de padres</li>
+                                    <li>Certificado médico reciente</li>
+                                </ul>
+                            </div>
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <h4>Documentos Académicos</h4>
+                                <ul>
+                                    <li>Certificado parcial de estudios</li>
+                                    <li>Kardex oficial sellado</li>
+                                    <li>Constancia de no adeudo</li>
+                                    <li>Carta de aceptación de empresa</li>
+                                    <li>Convenio de colaboración firmado</li>
+                                    <li>Plan de rotación de actividades</li>
+                                </ul>
+                            </div>
+                            <div class="doc-col">
+                                <div class="doc-icon"><i class="fas fa-camera"></i></div>
+                                <h4>Fotografías</h4>
+                                <ul>
+                                    <li>6 fotografías tamaño credencial</li>
+                                    <li>Fondo blanco, papel mate</li>
+                                    <li>Camisa blanca, corbata</li>
+                                    <li>Sin lentes, sin retoque</li>
+                                    <li>Recientes (máx. 3 meses)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pdf-btn-container">
+                            <button class="pdf-btn" onclick="generarPDF('dual')">
+                                <i class="fas fa-file-pdf"></i> Descargar Todo en PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Empresas con Convenio -->
+                    <div class="section reveal">
+                        <h3 style="text-align: center; margin: 40px 0 20px; color: var(--wine);">
+                            <i class="fas fa-handshake"></i> Empresas con Convenio
+                        </h3>
+
+                        <div class="specialty-grid">
+                            <div class="specialty-card">
+                                <div class="specialty-header"><i class="fas fa-industry"></i> Empresas Participantes</div>
+                                <div class="specialty-body">
+                                    <ul>
+                                        <li><strong>Industrias Automotriz 131</strong> – Ensamblaje</li>
+                                        <li><strong>Maquila Electrónica</strong> – Soldadura SMT</li>
+                                        <li><strong>Planta de Inyección Plástica</strong> – Operación</li>
+                                        <li><strong>Textiles del Norte</strong> – Control de calidad</li>
+                                        <li><strong>Empaques Industriales S.A.</strong> – Logística</li>
+                                        <li><strong>Metal Mecánica Dual</strong> – Corte CNC</li>
+                                        <li><strong>Alimentos Procesados 131</strong> – Producción</li>
+                                        <li><strong>Electrónica Avanzada</strong> – Pruebas circuitos</li>
+                                        <li><strong>Manufactura Dual CETIS</strong> – Mantenimiento</li>
+                                        <li><strong>Autopartes del Valle</strong> – Ensamble</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>¿Necesitas más información?</h2>
+            <p>Contacta al departamento de Vinculación y Servicios Escolares</p>
+            <a href="contactos.html" class="btn btn-primary">Contactar Ahora</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-left">
+                <h3>CETIS 131</h3>
+                <p>Miguel Hidalgo y Costilla</p>
+                <div class="footer-contact" style="margin-top:18px;">
+                    <p><i class="fas fa-phone"></i>899-929-3769</p>
+                    <p><i class="fas fa-envelope"></i>cetis131.escolares@dgeti.sems.gob.mx</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Décima s/n Granjas Económicas del Norte, Reynosa, México, 88730</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PLANTEL</h3>
+                <ul>
+                    <li><a href="index.html#acerca">Acerca de</a></li>
+                    <li><a href="#mensaje">Mensaje del Director</a></li>
+                    <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                    <li><a href="#historia">Reseña Histórica</a></li>
+                    <li><a href="#egresados">Egresados Destacados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>ALUMNOS</h3>
+                <ul>
+                    <li><a href="#oferta">Oferta Educativa</a></li>
+                    <li><a href="servicio-y-practicas.html">Servicio Social</a></li>
+                    <li><a href="servicio-y-practicas.html">Prácticas Profesionales</a></li>
+                    <li><a href="#titulacion">Titulación</a></li>
+                    <li><a href="nuevo-ingreso.html">Requisitos Nuevo Ingreso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SITIOS DE INTERÉS</h3>
+                <ul>
+                    <li><a href="#calificaciones">Consulta de Calificaciones</a></li>
+                    <li><a href="#prepa-linea">Prepa en Línea</a></li>
+                    <li><a href="#dgeti">DGETI</a></li>
+                    <li><a href="#autoservicios">Portal de Autoservicios</a></li>
+                    <li><a href="#edumedia">Edumedia TICs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 CETIS 131 – Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+    <script>
+        function openTabService(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+
+        function generarPDF(tipo) {
+            const { jsPDF } = window.jspdf;
+            if (!jsPDF) {
+                showNotification('Error: No se pudo cargar el generador de PDF', 'error');
+                return;
+            }
+
+            const doc = new jsPDF();
+            const titles = {
+                servicio: 'SERVICIO SOCIAL - REQUISITOS Y DOCUMENTOS',
+                practicas: 'PRÁCTICAS PROFESIONALES - REQUISITOS Y DOCUMENTOS',
+                dual: 'SISTEMA DUAL - REQUISITOS Y DOCUMENTOS'
+            };
+            const title = titles[tipo];
+            const fecha = new Date().toLocaleDateString('es-MX');
+
+            // Encabezado
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(18);
+            doc.text('CETIS 131', 105, 20, { align: 'center' });
+            doc.setFontSize(14);
+            doc.text(title, 105, 30, { align: 'center' });
+            doc.setFontSize(10);
+            doc.text(`Generado: ${fecha}`, 105, 38, { align: 'center' });
+
+            let y = 50;
+            const addText = (text, bold = false, size = 11, indent = 0) => {
+                doc.setFont('helvetica', bold ? 'bold' : 'normal');
+                doc.setFontSize(size);
+                const split = doc.splitTextToSize(text, 170);
+                doc.text(split, 20 + indent, y);
+                y += split.length * (size === 11 ? 6 : 5);
+                if (y > 270) {
+                    doc.addPage();
+                    y = 20;
+                }
+            };
+
+            // Requisitos
+            addText('REQUISITOS GENERALES:', true, 12);
+            y += 5;
+            const reqList = document.getElementById(`req-${tipo}`);
+            if (reqList) {
+                const items = reqList.querySelectorAll('li');
+                items.forEach(li => {
+                    addText('• ' + li.textContent.trim(), false, 10, 5);
+                });
+            }
+
+            y += 10;
+            addText('DOCUMENTOS REQUERIDOS:', true, 12);
+            y += 5;
+
+            // Documentos
+            const tabContent = document.getElementById(tipo);
+            if (tabContent) {
+                const cols = tabContent.querySelectorAll('.doc-col');
+                cols.forEach(col => {
+                    const title = col.querySelector('h4').textContent;
+                    addText(title + ':', true, 11);
+                    const items = col.querySelectorAll('li');
+                    items.forEach(li => {
+                        addText('  • ' + li.textContent.trim(), false, 10, 5);
+                    });
+                    y += 5;
+                });
+            }
+
+            doc.save(`cetis131_${tipo}_completo_${fecha.replace(/\//g, '-')}.pdf`);
+            showNotification('PDF generado exitosamente', 'success');
+        }
+    </script>
+</body>
+</html>

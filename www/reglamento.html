@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglamento Escolar - CETIS 131</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <i class="fas fa-phone"></i> 899-929-3769 | <i class="fas fa-envelope"></i> cetis131.escolares@dgeti.sems.gob.mx
+            </div>
+        </div>
+    </div>
+
+<!-- Header Premium -->
+    <header>
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-img floating" aria-label="Logo CETIS 131">131</div>
+                <div class="school-name">
+                    <h1>CETIS 131</h1>
+                    <p>Miguel Hidalgo y Costilla</p>
+                </div>
+            </div>
+
+            <!-- Navegación Principal -->
+            <nav class="main-nav" aria-label="Navegación principal">
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                        
+                        <li>
+                            <a href="#informacion-escolar" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-school"></i> Información Escolar <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Información Escolar</li>
+                                <li><a href="Especialidades.html"><i class="fas fa-cogs"></i> Especialidades</a></li>
+                                <li><a href="#instalaciones"><i class="fas fa-building"></i> Instalaciones</a></li>
+                                <li><a href="clubs.html"><i class="fas fa-running"></i> Clubs y Deportes</a></li>
+                                <li><a href="servicio-y-practicas.html"><i class="fas fa-handshake"></i> Servicio Social/Prácticas</a></li>
+                                <li><a href="extraordinarios.html"><i class="fas fa-file-alt"></i> Extraordinarios</a></li>
+                                <li><a href="nuevo-ingreso.html"><i class="fas fa-user-plus"></i> Nuevo Ingreso</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#novedades" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-newspaper"></i> Novedades <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Novedades</li>
+                                <li><a href="calendario.html"><i class="fas fa-calendar-alt"></i> Calendarios</a></li>
+                                <li><a href="eventos.html"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                                <li><a href="/www/cajasug.html"><i class="fas fa-box"></i> Caja de Sugerencias</a></li>
+                                <li><a href="#avisos"><i class="fas fa-bell"></i> Avisos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#conocenos" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-info-circle"></i> Conócenos <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Conócenos</li>
+                                <li><a href="contactos.html"><i class="fas fa-address-book"></i> Contactos</a></li>
+                                <li><a href="acerca-de.html"><i class="fas fa-building"></i> Acerca de</a></li>
+                                <li><a href="avisos-privacidad.html"><i class="fas fa-shield-alt"></i> Avisos de Privacidad</a></li>
+                                <li><a href="reglamento.html"><i class="fas fa-book"></i> Reglamento</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <div class="header-actions">
+                <a href="nuevo-ingreso.html" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Ingreso 2026
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-secondary">
+        <div class="hero-content">
+            <h2>Reglamento Escolar</h2>
+            <p class="subtitle">Normas de convivencia y disciplina del CETIS 131</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Reglamento General del CETIS 131</h2>
+            </div>
+
+            <!-- 1. ASISTENCIA Y PUNTUALIDAD -->
+            <div class="reglamento-card reveal">
+                <h3><i class="fas fa-clock"></i> Asistencia y Puntualidad</h3>
+                <ul>
+                    <li>
+                        <strong>Art. 1.1</strong> La asistencia es obligatoria. Se permite máximo 3 faltas injustificadas por semestre.
+                        <div class="sancion-box"><strong>Sanción:</strong> 4 faltas = Amonestación escrita. 6 faltas = Baja temporal. 8 faltas = Baja definitiva.</div>
+                        <div class="ejemplo-box">Ejemplo: Si llegas tarde 3 veces seguidas, se cuenta como 1 falta injustificada.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 1.2</strong> Llegar después de las 7:05 a.m. se considera retardo. 3 retardos = 1 falta.
+                        <div class="sancion-box"><strong>Sanción:</strong> Retardo recurrente → Servicio comunitario en la escuela.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 1.3</strong> Justificar ausencias con certificado médico o comprobante oficial en 48 horas.
+                        <div class="sancion-box"><strong>Sanción:</strong> No justificar → Falta injustificada automática.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2. UNIFORME Y PRESENTACIÓN PERSONAL -->
+            <div class="reglamento-card reveal">
+                <h3><i class="fas fa-user-tie"></i> Uniforme y Presentación Personal</h3>
+                <ul>
+                    <li>
+                        <strong>Art. 2.1</strong> Uniforme completo obligatorio: Polo blanco con logo, pantalón industrial azul marino, zapatos negros cerrados.
+                        <div class="sancion-box"><strong>Sanción:</strong> 1ª vez = Amonestación. 2ª vez = No entrada a clases hasta corregir.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 2.2</strong> Prohibido: Gorras, sudaderas, tenis, cabello teñido de colores extravagantes, perforaciones visibles.
+                        <div class="sancion-box"><strong>Sanción:</strong> Retiro del accesorio + llamada a padres.</div>
+                        <div class="ejemplo-box">Ejemplo: Un alumno con arete visible será enviado a casa hasta retirarlo.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 2.3</strong> Cabello corto y bien peinado (hombres). Recogido (mujeres).
+                        <div class="sancion-box"><strong>Sanción:</strong> Incumplimiento → No acceso a talleres ni laboratorios.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3. CONDUCTA Y CONVIVENCIA -->
+            <div class="reglamento-card reveal">
+                <h3><i class="fas fa-handshake"></i> Conducta y Convivencia</h3>
+                <ul>
+                    <li>
+                        <strong>Art. 3.1</strong> Respeto absoluto a compañeros, docentes y personal administrativo.
+                        <div class="sancion-box"><strong>Sanción:</strong> Insulto verbal = 3 días de suspensión. Agresión física = Baja inmediata.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 3.2</strong> Prohibido el uso de celulares en clases, talleres o laboratorios.
+                        <div class="sancion-box"><strong>Sanción:</strong> 1ª vez = Confiscación hasta fin de jornada. 2ª vez = Entrega solo a padres.</div>
+                        <div class="ejemplo-box">Ejemplo: Usar el celular en clase → Se entrega al final del día con firma de compromiso.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 3.3</strong> No se permite fumar, ingerir alcohol o sustancias ilícitas en el plantel o alrededores.
+                        <div class="sancion-box"><strong>Sanción:</strong> Baja definitiva + reporte a autoridades.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 3.4</strong> Cuidar instalaciones, equipo y mobiliario. Daños intencionales serán reparados por el alumno.
+                        <div class="sancion-box"><strong>Sanción:</strong> Pago de reparación + servicio comunitario.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 4. RENDIMIENTO ACADÉMICO -->
+            <div class="reglamento-card reveal">
+                <h3><i class="fas fa-graduation-cap"></i> Rendimiento Académico</h3>
+                <ul>
+                    <li>
+                        <strong>Art. 4.1</strong> Mínimo 7.0 en todas las materias para pasar de semestre.
+                        <div class="sancion-box"><strong>Sanción:</strong> Reprobación = Recuperación en periodo extraordinario (costo adicional).</div>
+                    </li>
+                    <li>
+                        <strong>Art. 4.2</strong> Entregar tareas y proyectos en tiempo y forma.
+                        <div class="sancion-box"><strong>Sanción:</strong> Tarea no entregada = 0 en la evaluación. Proyecto = Reprobación automática.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 4.3</strong> Prohibido plagio, copiar o hacer trampa en exámenes.
+                        <div class="sancion-box"><strong>Sanción:</strong> 1ª vez = 0 en el examen. 2ª vez = Baja del semestre.</div>
+                        <div class="ejemplo-box">Ejemplo: Copiar en examen final → 0 y repetición de materia.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 5. USO DE INSTALACIONES -->
+            <div class="reglamento-card reveal">
+                <h3><i class="fas fa-tools"></i> Uso de Instalaciones y Talleres</h3>
+                <ul>
+                    <li>
+                        <strong>Art. 5.1</strong> Usar bata y equipo de seguridad en talleres y laboratorios.
+                        <div class="sancion-box"><strong>Sanción:</strong> No acceso sin equipo. Repetido = Suspensión de prácticas.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 5.2</strong> No comer ni beber en aulas técnicas o laboratorios.
+                        <div class="sancion-box"><strong>Sanción:</strong> Limpieza del área + amonestación.</div>
+                    </li>
+                    <li>
+                        <strong>Art. 5.3</strong> Reportar inmediatamente cualquier daño o mal funcionamiento de equipo.
+                        <div class="sancion-box"><strong>Sanción:</strong> Ocultar daño = Responsabilidad económica total.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 6. DISPOSICIONES GENERALES -->
+            <div class="reglamento-card reveal">
+                <h3><i class="fas fa-gavel"></i> Disposiciones Generales</h3>
+                <ul>
+                    <li>
+                        <strong>Art. 6.1</strong> El reglamento aplica dentro y fuera del plantel durante actividades oficiales.
+                    </li>
+                    <li>
+                        <strong>Art. 6.2</strong> Las sanciones son acumulativas por semestre.
+                    </li>
+                    <li>
+                        <strong>Art. 6.3</strong> El CETIS 131 se reserva el derecho de admisión y permanencia.
+                    </li>
+                    <li>
+                        <strong>Art. 6.4</strong> Este reglamento será revisado anualmente por el Consejo Técnico.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BOTÓN PDF -->
+            <div class="pdf-btn-container">
+                <button class="pdf-btn" onclick="generarPDF()">
+                    <i class="fas fa-file-pdf"></i> Descargar Reglamento Completo en PDF
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-left">
+                <h3>CETIS 131</h3>
+                <p>Miguel Hidalgo y Costilla</p>
+                <div class="footer-contact" style="margin-top:18px;">
+                    <p><i class="fas fa-phone"></i>899-929-3769</p>
+                    <p><i class="fas fa-envelope"></i>cetis131.escolares@dgeti.sems.gob.mx</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Décima s/n Granjas Económicas del Norte, Reynosa, México, 88730</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PLANTEL</h3>
+                <ul>
+                    <li><a href="index.html#acerca">Acerca de</a></li>
+                    <li><a href="#mensaje">Mensaje del Director</a></li>
+                    <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                    <li><a href="#historia">Reseña Histórica</a></li>
+                    <li><a href="#egresados">Egresados Destacados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>ALUMNOS</h3>
+                <ul>
+                    <li><a href="#oferta">Oferta Educativa</a></li>
+                    <li><a href="servicio-y-practicas.html">Servicio Social</a></li>
+                    <li><a href="servicio-y-practicas.html">Prácticas Profesionales</a></li>
+                    <li><a href="#titulacion">Titulación</a></li>
+                    <li><a href="nuevo-ingreso.html">Requisitos Nuevo Ingreso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SITIOS DE INTERÉS</h3>
+                <ul>
+                    <li><a href="#calificaciones">Consulta de Calificaciones</a></li>
+                    <li><a href="#prepa-linea">Prepa en Línea</a></li>
+                    <li><a href="#dgeti">DGETI</a></li>
+                    <li><a href="#autoservicios">Portal de Autoservicios</a></li>
+                    <li><a href="#edumedia">Edumedia TICs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 CETIS 131 – Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+    <script>
+        function generarPDF() {
+            const { jsPDF } = window.jspdf;
+            if (!jsPDF) {
+                showNotification('Error: No se pudo cargar el generador de PDF', 'error');
+                return;
+            }
+
+            const doc = new jsPDF();
+            const fecha = new Date().toLocaleDateString('es-MX');
+
+            // ENCABEZADO
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(20);
+            doc.text('REGLAMENTO ESCOLAR', 105, 20, { align: 'center' });
+            doc.setFontSize(16);
+            doc.text('CETIS 131', 105, 30, { align: 'center' });
+            doc.setFontSize(10);
+            doc.text(`Vigente: ${new Date().getFullYear()} | Generado: ${fecha}`, 105, 38, { align: 'center' });
+
+            let y = 50;
+
+            const addText = (text, bold = false, size = 11, indent = 0) => {
+                doc.setFont('helvetica', bold ? 'bold' : 'normal');
+                doc.setFontSize(size);
+                const split = doc.splitTextToSize(text, 170);
+                doc.text(split, 20 + indent, y);
+                y += split.length * (size === 11 ? 6 : 5);
+                if (y > 270) {
+                    doc.addPage();
+                    y = 20;
+                }
+            };
+
+            const secciones = [
+                { titulo: '1. ASISTENCIA Y PUNTUALIDAD', arts: [
+                    'Art. 1.1: Máximo 3 faltas injustificadas por semestre. Sanción: 4 faltas = Amonestación. 6 = Baja temporal. 8 = Baja definitiva.',
+                    'Art. 1.2: 3 retardos = 1 falta. Retardo después de 7:05 a.m.',
+                    'Art. 1.3: Justificar en 48 hrs. o cuenta como injustificada.'
+                ]},
+                { titulo: '2. UNIFORME Y PRESENTACIÓN PERSONAL', arts: [
+                    'Art. 2.1: Uniforme completo obligatorio. Sanción: No entrada sin uniforme.',
+                    'Art. 2.2: Prohibido: gorras, tenis, cabello teñido, perforaciones.',
+                    'Art. 2.3: Cabello corto (hombres), recogido (mujeres).'
+                ]},
+                { titulo: '3. CONDUCTA Y CONVIVENCIA', arts: [
+                    'Art. 3.1: Respeto total. Agresión física = Baja inmediata.',
+                    'Art. 3.2: Celulares prohibidos en clases. Confiscación + entrega a padres.',
+                    'Art. 3.3: Prohibido fumar, alcohol, drogas. Baja + reporte.',
+                    'Art. 3.4: Cuidar instalaciones. Daños = pago + servicio.'
+                ]},
+                { titulo: '4. RENDIMIENTO ACADÉMICO', arts: [
+                    'Art. 4.1: Mínimo 7.0. Reprobación = Recuperación (costo).',
+                    'Art. 4.2: Tareas obligatorias. No entrega = 0.',
+                    'Art. 4.3: Plagio = 0 en examen. 2ª vez = Reprobación.'
+                ]},
+                { titulo: '5. USO DE INSTALACIONES', arts: [
+                    'Art. 5.1: Equipo de seguridad obligatorio en talleres.',
+                    'Art. 5.2: No comer ni beber en laboratorios.',
+                    'Art. 5.3: Reportar daños. Ocultar = responsabilidad total.'
+                ]},
+                { titulo: '6. DISPOSICIONES GENERALES', arts: [
+                    'Art. 6.1: Aplica dentro y fuera en actividades oficiales.',
+                    'Art. 6.2: Sanciones acumulativas.',
+                    'Art. 6.3: Derecho de admisión y permanencia.',
+                    'Art. 6.4: Revisión anual por Consejo Técnico.'
+                ]}
+            ];
+
+            secciones.forEach(sec => {
+                addText(sec.titulo, true, 13);
+                sec.arts.forEach(art => {
+                    addText(art, false, 10, 5);
+                });
+                y += 8;
+            });
+
+            doc.save(`reglamento_cetis131_${fecha.replace(/\//g, '-')}.pdf`);
+            showNotification('PDF generado exitosamente', 'success');
+        }
+    </script>
+</body>
+</html>

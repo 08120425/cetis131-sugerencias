@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenido Inapropiado - CETIS 131</title>
+    <link rel="stylesheet" href="../css/admin-styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>🎓 CETIS 131</h2>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="todas.html" class="nav-item">
+                    <span class="icon">📝</span>
+                    Todas las Sugerencias
+                </a>
+                <a href="pendientes.html" class="nav-item">
+                    <span class="icon">⏳</span>
+                    Pendientes
+                </a>
+                <a href="ofensivas.html" class="nav-item active">
+                    <span class="icon">⚠️</span>
+                    Contenido Inapropiado
+                </a>
+                <a href="resueltas.html" class="nav-item">
+                    <span class="icon">✅</span>
+                    Resueltas
+                </a>
+                <a href="../index.html" class="nav-item logout">
+                    <span class="icon">🏠</span>
+                    Volver al Inicio
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>⚠️ Contenido Inapropiado</h1>
+                <div class="user-info">
+                    <span>Admin</span>
+                    <div class="avatar">👤</div>
+                </div>
+            </header>
+
+            <!-- Alert Banner -->
+            <div class="alert-banner">
+                <strong>⚠️ Panel de Investigación</strong>
+                <p>Las sugerencias aquí mostradas contienen lenguaje inapropiado detectado automáticamente. Requieren atención prioritaria del departamento de orientación.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label>Severidad:</label>
+                    <select id="filterSeverity">
+                        <option value="">Todas</option>
+                        <option value="grave">Grave</option>
+                        <option value="moderado">Moderado</option>
+                        <option value="leve">Leve</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Estado:</label>
+                    <select id="filterStatus">
+                        <option value="">Todos</option>
+                        <option value="investigacion">En Investigación</option>
+                        <option value="en_revision">En Revisión</option>
+                        <option value="resuelto">Resuelto</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Buscar:</label>
+                    <input type="text" id="searchInput" placeholder="Email, asunto...">
+                </div>
+
+                <button onclick="applyFilters()" class="btn-primary">Filtrar</button>
+                <button onclick="clearFilters()" class="btn-secondary">Limpiar</button>
+                <button onclick="exportOffensive()" class="btn-secondary">📥 Exportar</button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card red">
+                    <div class="stat-icon">🔴</div>
+                    <div class="stat-info">
+                        <h3 id="graveCount">0</h3>
+                        <p>Casos Graves</p>
+                    </div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-icon">🟠</div>
+                    <div class="stat-info">
+                        <h3 id="moderadoCount">0</h3>
+                        <p>Casos Moderados</p>
+                    </div>
+                </div>
+                <div class="stat-card blue">
+                    <div class="stat-icon">🔵</div>
+                    <div class="stat-info">
+                        <h3 id="leveCount">0</h3>
+                        <p>Casos Leves</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Prioridad</th>
+                            <th>Email</th>
+                            <th>Asunto</th>
+                            <th>Severidad</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="suggestionsTable">
+                        <tr>
+                            <td colspan="7" class="loading">Cargando casos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Investigación -->
+    <div id="investigationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="../js/admin-script.js"></script>
+    <script>
+        let allSuggestions = [];
+
+        async function loadOffensive() {
+            try {
+                const response = await fetch('http://localhost:3000/api/suggestions?hasOffensive=true');
+                const result = await response.json();
+
+                if (result.success) {
+                    allSuggestions = result.data;
+                    renderSuggestions(allSuggestions);
+                    updateStats(allSuggestions);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al cargar los casos', 'error');
+            }
+        }
+
+        function renderSuggestions(suggestions) {
+            const tbody = document.getElementById('suggestionsTable');
+
+            if (suggestions.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="no-data">✅ No hay casos con contenido inapropiado</td></tr>';
+                return;
+            }
+
+            // Ordenar por severidad (grave primero)
+            const sorted = suggestions.sort((a, b) => {
+                const order = { 'grave': 3, 'moderado': 2, 'leve': 1 };
+                return (order[b.severity] || 0) - (order[a.severity] || 0);
+            });
+
+            tbody.innerHTML = sorted.map(s => {
+                const priorityIcon = s.severity === 'grave' ? '🔴' : s.severity === 'moderado' ? '🟠' : '🟡';
+                return `
+                    <tr class="${s.severity === 'grave' ? 'row-warning' : ''}">
+                        <td class="text-center">${priorityIcon}</td>
+                        <td>${s.email}</td>
+                        <td class="subject-cell">${s.subject}</td>
+                        <td><span class="badge badge-danger">${translateSeverity(s.severity)}</span></td>
+                        <td><span class="badge badge-${s.status}">${translateStatus(s.status)}</span></td>
+                        <td>${formatDate(s.createdAt)}</td>
+                        <td>
+                            <button onclick="viewInvestigation('${s._id}')" class="btn-icon" title="Investigar">🔍</button>
+                            <button onclick="scheduleMeeting('${s._id}')" class="btn-icon" title="Programar reunión">📅</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function updateStats(suggestions) {
+            const grave = suggestions.filter(s => s.severity === 'grave').length;
+            const moderado = suggestions.filter(s => s.severity === 'moderado').length;
+            const leve = suggestions.filter(s => s.severity === 'leve').length;
+
+            document.getElementById('graveCount').textContent = grave;
+            document.getElementById('moderadoCount').textContent = moderado;
+            document.getElementById('leveCount').textContent = leve;
+        }
+
+        function applyFilters() {
+            const severity = document.getElementById('filterSeverity').value;
+            const status = document.getElementById('filterStatus').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+
+            let filtered = allSuggestions;
+
+            if (severity) {
+                filtered = filtered.filter(s => s.severity === severity);
+            }
+
+            if (status) {
+                filtered = filtered.filter(s => s.status === status);
+            }
+
+            if (search) {
+                filtered = filtered.filter(s => 
+                    s.email.toLowerCase().includes(search) ||
+                    s.subject.toLowerCase().includes(search)
+                );
+            }
+
+            renderSuggestions(filtered);
+            updateStats(filtered);
+        }
+
+        function clearFilters() {
+            document.getElementById('filterSeverity').value = '';
+            document.getElementById('filterStatus').value = '';
+            document.getElementById('searchInput').value = '';
+            renderSuggestions(allSuggestions);
+            updateStats(allSuggestions);
+        }
+
+        async function viewInvestigation(id) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`);
+                const result = await response.json();
+
+                if (result.success) {
+                    showInvestigationModal(result.data);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al cargar los detalles', 'error');
+            }
+        }
+
+        function showInvestigationModal(suggestion) {
+            const modal = document.getElementById('investigationModal');
+            const modalBody = document.getElementById('modalBody');
+
+            const actionRequired = suggestion.severity === 'grave' 
+                ? '⚡ CITACIÓN INMEDIATA - Contactar con dirección' 
+                : '📞 Revisión de orientación educativa';
+
+            modalBody.innerHTML = `
+                <h2>🔍 Panel de Investigación</h2>
+                <div class="detail-grid">
+                    <div class="detail-item full-width alert-danger">
+                        <strong>⚠️ ALERTA DE CONTENIDO INAPROPIADO</strong>
+                        <p><strong>Severidad:</strong> ${translateSeverity(suggestion.severity).toUpperCase()}</p>
+                        <p><strong>Acción requerida:</strong> ${actionRequired}</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Estudiante:</strong>
+                        <span>${suggestion.email}</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Estado:</strong>
+                        <span class="badge badge-${suggestion.status}">${translateStatus(suggestion.status)}</span>
+                    </div>
+                    
+                    <div class="detail-item full-width">
+                        <strong>Asunto:</strong>
+                        <span>${suggestion.subject}</span>
+                    </div>
+                    
+                    <div class="detail-item full-width">
+                        <strong>Mensaje Original:</strong>
+                        <p class="message-text">${suggestion.message}</p>
+                    </div>
+                    
+                    <div class="detail-item full-width alert-danger">
+                        <strong>Palabras Detectadas:</strong>
+                        <p>${suggestion.offensiveWords.map(w => `<span class="badge badge-danger">${w}</span>`).join(' ')}</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Fecha del incidente:</strong>
+                        <span>${formatDate(suggestion.createdAt)}</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>IP Address:</strong>
+                        <span>${suggestion.ipAddress || 'N/A'}</span>
+                    </div>
+
+                    ${suggestion.requiresMeeting ? `
+                        <div class="detail-item full-width">
+                            <strong>Reunión programada:</strong>
+                            <span>${suggestion.meetingScheduled ? formatDate(suggestion.meetingScheduled) : 'Pendiente'}</span>
+                        </div>
+                    ` : ''}
+                    
+                    ${suggestion.notes ? `
+                        <div class="detail-item full-width">
+                            <strong>Notas de seguimiento:</strong>
+                            <p>${suggestion.notes}</p>
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="modal-actions">
+                    <button onclick="scheduleMeeting('${suggestion._id}')" class="btn-primary">📅 Programar Reunión</button>
+                    <button onclick="addNotes('${suggestion._id}')" class="btn-primary">📝 Agregar Notas</button>
+                    <button onclick="markAsResolved('${suggestion._id}')" class="btn-secondary">✔️ Resolver Caso</button>
+                    <button onclick="closeModal()" class="btn-secondary">Cerrar</button>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function scheduleMeeting(id) {
+            const date = prompt('Fecha y hora de la reunión (YYYY-MM-DD HH:MM):');
+            if (!date) return;
+
+            updateCase(id, { 
+                meetingDate: new Date(date),
+                status: 'investigacion'
+            }, 'Reunión programada correctamente');
+        }
+
+        function addNotes(id) {
+            const notes = prompt('Agregar notas del caso:');
+            if (!notes) return;
+
+            updateCase(id, { 
+                notes: notes,
+                reviewerEmail: 'orientacion@cetis131.edu.mx'
+            }, 'Notas agregadas correctamente');
+        }
+
+        async function markAsResolved(id) {
+            if (!confirmAction('¿Marcar este caso como resuelto?')) return;
+
+            updateCase(id, {
+                status: 'resuelto',
+                reviewerEmail: 'orientacion@cetis131.edu.mx'
+            }, 'Caso resuelto correctamente');
+        }
+
+        async function updateCase(id, data, successMsg) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showNotification(successMsg);
+                    closeModal();
+                    loadOffensive();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al actualizar el caso', 'error');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('investigationModal').style.display = 'none';
+        }
+
+        function exportOffensive() {
+            exportToCSV(allSuggestions, 'casos_inapropiados.csv');
+            showNotification('Exportando casos...');
+        }
+
+        // Cargar al inicio
+        loadOffensive();
+
+        // Auto-actualizar cada minuto
+        setInterval(loadOffensive, 60000);
+    </script>
+
+    <style>
+        .alert-banner {
+            background: #fef2f2;
+            border: 2px solid #fecaca;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-banner strong {
+            color: #991b1b;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-banner p {
+            color: #7f1d1d;
+            font-size: 0.875rem;
+        }
+    </style>
+</body>
+</html>

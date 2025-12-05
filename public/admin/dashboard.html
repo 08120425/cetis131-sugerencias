@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Administración CETIS 131</title>
+    <link rel="stylesheet" href="../css/admin-styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>🎓 CETIS 131</h2>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="todas.html" class="nav-item">
+                    <span class="icon">📝</span>
+                    Todas las Sugerencias
+                </a>
+                <a href="pendientes.html" class="nav-item">
+                    <span class="icon">⏳</span>
+                    Pendientes
+                </a>
+                <a href="ofensivas.html" class="nav-item">
+                    <span class="icon">⚠️</span>
+                    Contenido Inapropiado
+                </a>
+                <a href="resueltas.html" class="nav-item">
+                    <span class="icon">✅</span>
+                    Resueltas
+                </a>
+                <a href="../index.html" class="nav-item logout">
+                    <span class="icon">🏠</span>
+                    Volver al Inicio
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>Dashboard Principal</h1>
+                <div class="user-info">
+                    <span>Admin</span>
+                    <div class="avatar">👤</div>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card blue">
+                    <div class="stat-icon">📨</div>
+                    <div class="stat-info">
+                        <h3 id="totalSuggestions">0</h3>
+                        <p>Total de Sugerencias</p>
+                    </div>
+                </div>
+
+                <div class="stat-card orange">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-info">
+                        <h3 id="pendingSuggestions">0</h3>
+                        <p>Pendientes</p>
+                    </div>
+                </div>
+
+                <div class="stat-card red">
+                    <div class="stat-icon">⚠️</div>
+                    <div class="stat-info">
+                        <h3 id="offensiveSuggestions">0</h3>
+                        <p>Inapropiadas</p>
+                    </div>
+                </div>
+
+                <div class="stat-card green">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <h3 id="resolvedSuggestions">0</h3>
+                        <p>Resueltas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Sugerencias por Tipo</h3>
+                    <div id="typeChart" class="chart-content"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Sugerencias por Estado</h3>
+                    <div id="statusChart" class="chart-content"></div>
+                </div>
+            </div>
+
+            <!-- Recent Suggestions -->
+            <div class="recent-section">
+                <h2>Sugerencias Recientes</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Tipo</th>
+                                <th>Asunto</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentSuggestions">
+                            <tr>
+                                <td colspan="6" class="loading">Cargando...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/admin-script.js"></script>
+    <script>
+        // Cargar datos del dashboard
+        async function loadDashboard() {
+            try {
+                // Cargar estadísticas
+                const statsRes = await fetch('http://localhost:3000/api/suggestions/stats');
+                const stats = await statsRes.json();
+
+                if (stats.success) {
+                    const data = stats.data;
+                    
+                    // Total
+                    document.getElementById('totalSuggestions').textContent = 
+                        data.total[0]?.count || 0;
+                    
+                    // Pendientes
+                    const pending = data.byStatus.find(s => s._id === 'pendiente');
+                    document.getElementById('pendingSuggestions').textContent = 
+                        pending?.count || 0;
+                    
+                    // Ofensivas
+                    document.getElementById('offensiveSuggestions').textContent = 
+                        data.offensive[0]?.count || 0;
+                    
+                    // Resueltas
+                    const resolved = data.byStatus.find(s => s._id === 'resuelto');
+                    document.getElementById('resolvedSuggestions').textContent = 
+                        resolved?.count || 0;
+
+                    // Renderizar gráficos
+                    renderTypeChart(data.byType);
+                    renderStatusChart(data.byStatus);
+                }
+
+                // Cargar sugerencias recientes
+                const suggestionsRes = await fetch('http://localhost:3000/api/suggestions?limit=10');
+                const suggestions = await suggestionsRes.json();
+
+                if (suggestions.success) {
+                    renderRecentSuggestions(suggestions.data);
+                }
+
+            } catch (error) {
+                console.error('Error al cargar dashboard:', error);
+                showNotification('Error al cargar los datos', 'error');
+            }
+        }
+
+        function renderTypeChart(data) {
+            const chart = document.getElementById('typeChart');
+            const total = data.reduce((sum, item) => sum + item.count, 0);
+            
+            let html = '<div class="bar-chart">';
+            data.forEach(item => {
+                const percentage = ((item.count / total) * 100).toFixed(1);
+                html += `
+                    <div class="bar-item">
+                        <div class="bar-label">${translateType(item._id)}</div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="bar-value">${item.count}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            chart.innerHTML = html;
+        }
+
+        function renderStatusChart(data) {
+            const chart = document.getElementById('statusChart');
+            const total = data.reduce((sum, item) => sum + item.count, 0);
+            
+            let html = '<div class="bar-chart">';
+            data.forEach(item => {
+                const percentage = ((item.count / total) * 100).toFixed(1);
+                html += `
+                    <div class="bar-item">
+                        <div class="bar-label">${translateStatus(item._id)}</div>
+                        <div class="bar-bg">
+                            <div class="bar-fill status-${item._id}" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="bar-value">${item.count}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            chart.innerHTML = html;
+        }
+
+        function renderRecentSuggestions(suggestions) {
+            const tbody = document.getElementById('recentSuggestions');
+            
+            if (suggestions.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="no-data">No hay sugerencias</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = suggestions.slice(0, 10).map(s => `
+                <tr>
+                    <td>${s.email}</td>
+                    <td><span class="badge badge-${s.type}">${translateType(s.type)}</span></td>
+                    <td>${s.subject}</td>
+                    <td><span class="badge badge-${s.status}">${translateStatus(s.status)}</span></td>
+                    <td>${formatDate(s.createdAt)}</td>
+                    <td>
+                        <button onclick="viewSuggestion('${s._id}')" class="btn-icon" title="Ver detalles">👁️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function viewSuggestion(id) {
+            window.location.href = `detalle.html?id=${id}`;
+        }
+
+        // Cargar al iniciar
+        loadDashboard();
+
+        // Actualizar cada 30 segundos
+        setInterval(loadDashboard, 30000);
+    </script>
+</body>
+</html>

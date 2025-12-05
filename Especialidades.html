@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidades Técnicas - CETIS 131</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <i class="fas fa-phone"></i> 899-929-3769 | <i class="fas fa-envelope"></i> cetis131.escolares@dgeti.sems.gob.mx
+            </div>
+        </div>
+    </div>
+
+<!-- Header Premium -->
+    <header>
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-img floating" aria-label="Logo CETIS 131">131</div>
+                <div class="school-name">
+                    <h1>CETIS 131</h1>
+                    <p>Miguel Hidalgo y Costilla</p>
+                </div>
+            </div>
+
+            <!-- Navegación Principal -->
+            <nav class="main-nav" aria-label="Navegación principal">
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                        
+                        <li>
+                            <a href="#informacion-escolar" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-school"></i> Información Escolar <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Información Escolar</li>
+                                <li><a href="Especialidades.html"><i class="fas fa-cogs"></i> Especialidades</a></li>
+                                <li><a href="#instalaciones"><i class="fas fa-building"></i> Instalaciones</a></li>
+                                <li><a href="clubs.html"><i class="fas fa-running"></i> Clubs y Deportes</a></li>
+                                <li><a href="servicio-y-practicas.html"><i class="fas fa-handshake"></i> Servicio Social/Prácticas</a></li>
+                                <li><a href="extraordinarios.html"><i class="fas fa-file-alt"></i> Extraordinarios</a></li>
+                                <li><a href="nuevo-ingreso.html"><i class="fas fa-user-plus"></i> Nuevo Ingreso</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#novedades" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-newspaper"></i> Novedades <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Novedades</li>
+                                <li><a href="calendario.html"><i class="fas fa-calendar-alt"></i> Calendarios</a></li>
+                                <li><a href="eventos.html"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                                <li><a href="/www/cajasug.html"><i class="fas fa-box"></i> Caja de Sugerencias</a></li>
+                                <li><a href="#avisos"><i class="fas fa-bell"></i> Avisos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#conocenos" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-info-circle"></i> Conócenos <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Conócenos</li>
+                                <li><a href="contactos.html"><i class="fas fa-address-book"></i> Contactos</a></li>
+                                <li><a href="acerca-de.html"><i class="fas fa-building"></i> Acerca de</a></li>
+                                <li><a href="avisos-privacidad.html"><i class="fas fa-shield-alt"></i> Avisos de Privacidad</a></li>
+                                <li><a href="reglamento.html"><i class="fas fa-book"></i> Reglamento</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <div class="header-actions">
+                <a href="nuevo-ingreso.html" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Ingreso 2026
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-secondary">
+        <div class="hero-content">
+            <h2>Especialidades Técnicas</h2>
+            <p class="subtitle">Formación técnica de alto nivel para tu futuro profesional</p>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+        <section class="section reveal">
+            <div class="section-header">
+                <h2>Elige tu camino</h2>
+                <p>Conoce las cinco especialidades técnicas que ofrece el CETIS 131</p>
+            </div>
+
+            <div class="cards-grid" id="specialties-grid">
+                <!-- Programación -->
+                <div class="card specialty-card reveal" onclick="openSpecialtyModal('programacion')">
+                    <div class="specialty-card-image" style="background: linear-gradient(135deg, rgba(139, 21, 56, 0.9), rgba(75, 0, 130, 0.9)), url('images/programacion/img1.png'); background-size: cover; background-position: center;">
+                        <div class="card-overlay-content">
+                            <i class="fas fa-laptop-code specialty-icon"></i>
+                            <h3>Programación</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Desarrollo de software, aplicaciones web y móviles. Aprende Python, JavaScript, Java, C#, React, Node.js y Flutter.</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- Administración R.H. -->
+                <div class="card specialty-card reveal" onclick="openSpecialtyModal('administracion')">
+                    <div class="specialty-card-image" style="background: linear-gradient(135deg, rgba(139, 21, 56, 0.9), rgba(75, 0, 130, 0.9)), url('images/administracion/img1.png'); background-size: cover; background-position: center;">
+                        <div class="card-overlay-content">
+                            <i class="fas fa-users specialty-icon"></i>
+                            <h3>Administración R.H.</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Gestión del talento humano: reclutamiento, nóminas, capacitación, clima laboral y desarrollo organizacional.</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- S.M.E.C. -->
+                <div class="card specialty-card reveal" onclick="openSpecialtyModal('smec')">
+                    <div class="specialty-card-image" style="background: linear-gradient(135deg, rgba(139, 21, 56, 0.9), rgba(75, 0, 130, 0.9)), url('images/smec/img1.png'); background-size: cover; background-position: center;">
+                        <div class="card-overlay-content">
+                            <i class="fas fa-tools specialty-icon"></i>
+                            <h3>S.M.E.C.</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Soporte y Mantenimiento de Equipos de Cómputo. Diagnóstico, ensamblaje, redes LAN/WAN, sistemas operativos.</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- Mantenimiento Industrial -->
+                <div class="card specialty-card reveal" onclick="openSpecialtyModal('mantenimiento')">
+                    <div class="specialty-card-image" style="background: linear-gradient(135deg, rgba(139, 21, 56, 0.9), rgba(75, 0, 130, 0.9)), url('images/mantenimiento/img1.jpg'); background-size: cover; background-position: center;">
+                        <div class="card-overlay-content">
+                            <i class="fas fa-industry specialty-icon"></i>
+                            <h3>Mantenimiento Industrial</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Mantenimiento preventivo y correctivo de maquinaria industrial. PLC, automatización, hidráulica, neumática.</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- Ciberseguridad -->
+                <div class="card specialty-card reveal" onclick="openSpecialtyModal('ciberseguridad')">
+                    <div class="specialty-card-image" style="background: linear-gradient(135deg, rgba(139, 21, 56, 0.9), rgba(75, 0, 130, 0.9)), url('images/ciberseguridad/img1.png'); background-size: cover; background-position: center;">
+                        <div class="card-overlay-content">
+                            <i class="fas fa-shield-alt specialty-icon"></i>
+                            <h3>Ciberseguridad</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Protección de sistemas y datos. Ethical hacking, firewalls, criptografía, análisis de vulnerabilidades.</p>
+                        <span class="card-link">Ver más <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>¿Listo para elegir tu especialidad?</h2>
+            <p>Inscríbete ahora y comienza tu formación técnica profesional</p>
+            <a href="nuevo-ingreso.html" class="btn btn-primary">Proceso de Inscripción</a>
+        </div>
+    </div>
+
+    <!-- Modales de Especialidades -->
+    <div id="modal-programacion" class="modal specialty-modal">
+        <div class="modal-content specialty-modal-content">
+            <span class="close" onclick="closeSpecialtyModal('programacion')">&times;</span>
+            <h3><i class="fas fa-laptop-code"></i> Programación</h3>
+            
+            <div class="specialty-description">
+                <p>Esta especialidad introduce al desarrollo de software, páginas web y aplicaciones. Se estudian lenguajes como HTML, JavaScript y Python, así como bases de datos, diagramas de flujo y lógica de programación. Las prácticas se realizan en laboratorios equipados, donde los estudiantes crean programas y sitios web.</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel" id="carousel-programacion">
+                    <img src="images/programacion/img1.png" alt="Programación 1">
+                    <img src="images/programacion/img2.png" alt="Programación 2">
+                    <img src="images/programacion/img3.png" alt="Programación 3">
+                    <img src="images/programacion/img4.png" alt="Programación 4">
+                    <img src="images/programacion/img5.png" alt="Programación 5">
+                </div>
+                <button class="carousel-btn prev-btn" onclick="changeCarouselSlide('programacion', -1)">‹</button>
+                <button class="carousel-btn next-btn" onclick="changeCarouselSlide('programacion', 1)">›</button>
+                <div class="carousel-indicators" id="indicators-programacion"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-administracion" class="modal specialty-modal">
+        <div class="modal-content specialty-modal-content">
+            <span class="close" onclick="closeSpecialtyModal('administracion')">&times;</span>
+            <h3><i class="fas fa-users"></i> Administración de Recursos Humanos</h3>
+            
+            <div class="specialty-description">
+                <p>Esta especialidad se enfoca en la gestión del personal dentro de una empresa. Los estudiantes elaboran manuales organizacionales y de capacitación, aprenden sobre reclutamiento, entrevistas y selección de personal, y desarrollan habilidades para evaluar el desempeño y manejar procesos administrativos básicos relacionados con el área laboral.</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel" id="carousel-administracion">
+                    <img src="images/administracion/img1.png" alt="Administración 1">
+                    <img src="images/administracion/img2.png" alt="Administración 2">
+                    <img src="images/administracion/img3.png" alt="Administración 3">
+                    <img src="images/administracion/img4.png" alt="Administración 4">
+                    <img src="images/administracion/img5.png" alt="Administración 5">
+                </div>
+                <button class="carousel-btn prev-btn" onclick="changeCarouselSlide('administracion', -1)">‹</button>
+                <button class="carousel-btn next-btn" onclick="changeCarouselSlide('administracion', 1)">›</button>
+                <div class="carousel-indicators" id="indicators-administracion"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-smec" class="modal specialty-modal">
+        <div class="modal-content specialty-modal-content">
+            <span class="close" onclick="closeSpecialtyModal('smec')">&times;</span>
+            <h3><i class="fas fa-tools"></i> Soporte y Mantenimiento de Equipos de Cómputo</h3>
+            
+            <div class="specialty-description">
+                <p>Esta especialidad se enfoca en diagnosticar, reparar y dar mantenimiento a computadoras y periféricos. El estudiante aprende a identificar y trabajar con componentes internos como tarjeta madre, RAM o disco duro, además de adquirir bases de software y hardware. Combina conocimientos de programación y mantenimiento, lo que la convierte en una formación técnica muy completa.</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel" id="carousel-smec">
+                    <img src="images/smec/img1.png" alt="SMEC 1">
+                    <img src="images/smec/img2.webp" alt="SMEC 2">
+                    <img src="images/smec/img3.png" alt="SMEC 3">
+                    <img src="images/smec/img4.png" alt="SMEC 4">
+                    <img src="images/smec/img5.png" alt="SMEC 5">
+                </div>
+                <button class="carousel-btn prev-btn" onclick="changeCarouselSlide('smec', -1)">‹</button>
+                <button class="carousel-btn next-btn" onclick="changeCarouselSlide('smec', 1)">›</button>
+                <div class="carousel-indicators" id="indicators-smec"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-mantenimiento" class="modal specialty-modal">
+        <div class="modal-content specialty-modal-content">
+            <span class="close" onclick="closeSpecialtyModal('mantenimiento')">&times;</span>
+            <h3><i class="fas fa-industry"></i> Mantenimiento Industrial</h3>
+            
+            <div class="specialty-description">
+                <p>Aquí se estudian procesos y técnicas para el funcionamiento de sistemas industriales. Incluye interpretación de planos, soldadura, uso de torno, electrónica, electricidad, neumática y automatización con Arduino. Los alumnos aplican sus conocimientos en talleres equipados, donde practican directamente las tareas que verán en la industria.</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel" id="carousel-mantenimiento">
+                    <img src="images/mantenimiento/img1.jpg" alt="Mantenimiento 1">
+                    <img src="images/mantenimiento/img2.png" alt="Mantenimiento 2">
+                    <img src="images/mantenimiento/img3.jpg" alt="Mantenimiento 3">
+                    <img src="images/mantenimiento/img4.png" alt="Mantenimiento 4">
+                    <img src="images/mantenimiento/img5.png" alt="Mantenimiento 5">
+                </div>
+                <button class="carousel-btn prev-btn" onclick="changeCarouselSlide('mantenimiento', -1)">‹</button>
+                <button class="carousel-btn next-btn" onclick="changeCarouselSlide('mantenimiento', 1)">›</button>
+                <div class="carousel-indicators" id="indicators-mantenimiento"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ciberseguridad" class="modal specialty-modal">
+        <div class="modal-content specialty-modal-content">
+            <span class="close" onclick="closeSpecialtyModal('ciberseguridad')">&times;</span>
+            <h3><i class="fas fa-shield-alt"></i> Ciberseguridad</h3>
+            
+            <div class="specialty-description">
+                <p>Esta especialidad se enfoca en proteger equipos, redes y datos. Los estudiantes aprenden bases de programación, uso de sistemas operativos, análisis de vulnerabilidades y prácticas para prevenir ataques digitales. También realizan ejercicios de instalación, monitoreo y seguridad en computadoras y redes.</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel" id="carousel-ciberseguridad">
+                    <img src="images/ciberseguridad/img1.png" alt="Ciberseguridad 1">
+                    <img src="images/ciberseguridad/img2.png" alt="Ciberseguridad 2">
+                    <img src="images/ciberseguridad/img3.png" alt="Ciberseguridad 3">
+                    <img src="images/ciberseguridad/img4.png" alt="Ciberseguridad 4">
+                    <img src="images/ciberseguridad/img5.png" alt="Ciberseguridad 5">
+                </div>
+                <button class="carousel-btn prev-btn" onclick="changeCarouselSlide('ciberseguridad', -1)">‹</button>
+                <button class="carousel-btn next-btn" onclick="changeCarouselSlide('ciberseguridad', 1)">›</button>
+                <div class="carousel-indicators" id="indicators-ciberseguridad"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-left">
+                <h3>CETIS 131</h3>
+                <p>Miguel Hidalgo y Costilla</p>
+                <div class="footer-contact" style="margin-top:18px;">
+                    <p><i class="fas fa-phone"></i>899-929-3769</p>
+                    <p><i class="fas fa-envelope"></i>cetis131.escolares@dgeti.sems.gob.mx</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Décima s/n Granjas Económicas del Norte, Reynosa, México, 88730</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PLANTEL</h3>
+                <ul>
+                    <li><a href="acerca-de.html">Acerca de</a></li>
+                    <li><a href="acerca-de.html#historia">Historia</a></li>
+                    <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                    <li><a href="acerca-de.html#reconocimientos">Reconocimientos</a></li>
+                    <li><a href="acerca-de.html#directiva">Equipo Directivo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>ALUMNOS</h3>
+                <ul>
+                    <li><a href="Especialidades.html">Oferta Educativa</a></li>
+                    <li><a href="servicio-y-practicas.html">Servicio Social</a></li>
+                    <li><a href="servicio-y-practicas.html">Prácticas Profesionales</a></li>
+                    <li><a href="#titulacion">Titulación</a></li>
+                    <li><a href="nuevo-ingreso.html">Requisitos Nuevo Ingreso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SITIOS DE INTERÉS</h3>
+                <ul>
+                    <li><a href="#calificaciones">Consulta de Calificaciones</a></li>
+                    <li><a href="#prepa-linea">Prepa en Línea</a></li>
+                    <li><a href="#dgeti">DGETI</a></li>
+                    <li><a href="#autoservicios">Portal de Autoservicios</a></li>
+                    <li><a href="#edumedia">Edumedia TICs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 CETIS 131 – Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/especialidades.js"></script>
+</body>
+</html>

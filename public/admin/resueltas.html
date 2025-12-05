@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugerencias Resueltas - CETIS 131</title>
+    <link rel="stylesheet" href="../css/admin-styles.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>🎓 CETIS 131</h2>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    Dashboard
+                </a>
+                <a href="todas.html" class="nav-item">
+                    <span class="icon">📝</span>
+                    Todas las Sugerencias
+                </a>
+                <a href="pendientes.html" class="nav-item">
+                    <span class="icon">⏳</span>
+                    Pendientes
+                </a>
+                <a href="ofensivas.html" class="nav-item">
+                    <span class="icon">⚠️</span>
+                    Contenido Inapropiado
+                </a>
+                <a href="resueltas.html" class="nav-item active">
+                    <span class="icon">✅</span>
+                    Resueltas
+                </a>
+                <a href="../index.html" class="nav-item logout">
+                    <span class="icon">🏠</span>
+                    Volver al Inicio
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>✅ Sugerencias Resueltas</h1>
+                <div class="user-info">
+                    <span>Admin</span>
+                    <div class="avatar">👤</div>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card green">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <h3 id="totalResolved">0</h3>
+                        <p>Total Resueltas</p>
+                    </div>
+                </div>
+
+                <div class="stat-card blue">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <h3 id="thisMonth">0</h3>
+                        <p>Este Mes</p>
+                    </div>
+                </div>
+
+                <div class="stat-card orange">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-info">
+                        <h3 id="avgTime">0</h3>
+                        <p>Días Promedio</p>
+                    </div>
+                </div>
+
+                <div class="stat-card blue">
+                    <div class="stat-icon">👤</div>
+                    <div class="stat-info">
+                        <h3 id="byReviewer">-</h3>
+                        <p>Principal Revisor</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label>Tipo:</label>
+                    <select id="filterType">
+                        <option value="">Todos</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="queja">Queja</option>
+                        <option value="felicitacion">Felicitación</option>
+                        <option value="reporte">Reporte</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Período:</label>
+                    <select id="filterPeriod">
+                        <option value="">Todos</option>
+                        <option value="today">Hoy</option>
+                        <option value="week">Esta Semana</option>
+                        <option value="month">Este Mes</option>
+                        <option value="year">Este Año</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Buscar:</label>
+                    <input type="text" id="searchInput" placeholder="Email, asunto...">
+                </div>
+
+                <button onclick="applyFilters()" class="btn-primary">Filtrar</button>
+                <button onclick="clearFilters()" class="btn-secondary">Limpiar</button>
+                <button onclick="exportResolved()" class="btn-secondary">📥 Exportar</button>
+            </div>
+
+            <!-- Summary Bar -->
+            <div class="summary-bar">
+                <div class="summary-item">
+                    <strong id="filteredCount">0</strong> sugerencias resueltas
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Tipo</th>
+                            <th>Asunto</th>
+                            <th>Revisado por</th>
+                            <th>Fecha Creación</th>
+                            <th>Fecha Resolución</th>
+                            <th>Tiempo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="suggestionsTable">
+                        <tr>
+                            <td colspan="8" class="loading">Cargando sugerencias resueltas...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Detalles -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="../js/admin-script.js"></script>
+    <script>
+        let allSuggestions = [];
+
+        async function loadResolved() {
+            try {
+                const response = await fetch('http://localhost:3000/api/suggestions?status=resuelto');
+                const result = await response.json();
+
+                if (result.success) {
+                    allSuggestions = result.data;
+                    renderSuggestions(allSuggestions);
+                    updateStats(allSuggestions);
+                    updateFilteredCount(allSuggestions.length);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al cargar las sugerencias', 'error');
+            }
+        }
+
+        function renderSuggestions(suggestions) {
+            const tbody = document.getElementById('suggestionsTable');
+
+            if (suggestions.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="no-data">No hay sugerencias resueltas</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = suggestions.map(s => {
+                const resolutionTime = calculateDays(s.createdAt, s.reviewedAt || s.updatedAt);
+                
+                return `
+                    <tr>
+                        <td>${s.email}</td>
+                        <td><span class="badge badge-${s.type}">${translateType(s.type)}</span></td>
+                        <td class="subject-cell">${s.subject}</td>
+                        <td>${s.reviewedBy || 'Sistema'}</td>
+                        <td>${formatDateShort(s.createdAt)}</td>
+                        <td>${formatDateShort(s.reviewedAt || s.updatedAt)}</td>
+                        <td>
+                            <span class="badge ${resolutionTime <= 3 ? 'badge-green' : resolutionTime <= 7 ? 'badge-orange' : 'badge-red'}">
+                                ${resolutionTime}d
+                            </span>
+                        </td>
+                        <td>
+                            <button onclick="viewDetails('${s._id}')" class="btn-icon" title="Ver detalles">👁️</button>
+                            <button onclick="reopenCase('${s._id}')" class="btn-icon" title="Reabrir caso">🔄</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function calculateDays(start, end) {
+            const startDate = new Date(start);
+            const endDate = new Date(end);
+            const diff = Math.abs(endDate - startDate);
+            return Math.ceil(diff / (1000 * 60 * 60 * 24));
+        }
+
+        function updateStats(suggestions) {
+            // Total resueltas
+            document.getElementById('totalResolved').textContent = suggestions.length;
+
+            // Este mes
+            const thisMonth = suggestions.filter(s => {
+                const date = new Date(s.reviewedAt || s.updatedAt);
+                const now = new Date();
+                return date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear();
+            }).length;
+            document.getElementById('thisMonth').textContent = thisMonth;
+
+            // Tiempo promedio
+            const avgTime = suggestions.reduce((sum, s) => {
+                return sum + calculateDays(s.createdAt, s.reviewedAt || s.updatedAt);
+            }, 0) / suggestions.length;
+            document.getElementById('avgTime').textContent = Math.round(avgTime);
+
+            // Revisor principal
+            const reviewers = {};
+            suggestions.forEach(s => {
+                const reviewer = s.reviewedBy || 'Sistema';
+                reviewers[reviewer] = (reviewers[reviewer] || 0) + 1;
+            });
+            const topReviewer = Object.keys(reviewers).reduce((a, b) => 
+                reviewers[a] > reviewers[b] ? a : b, 'N/A'
+            );
+            document.getElementById('byReviewer').textContent = topReviewer.split('@')[0];
+        }
+
+        function applyFilters() {
+            const type = document.getElementById('filterType').value;
+            const period = document.getElementById('filterPeriod').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+
+            let filtered = allSuggestions;
+
+            // Filtrar por tipo
+            if (type) {
+                filtered = filtered.filter(s => s.type === type);
+            }
+
+            // Filtrar por período
+            if (period) {
+                const now = new Date();
+                filtered = filtered.filter(s => {
+                    const date = new Date(s.reviewedAt || s.updatedAt);
+                    
+                    switch(period) {
+                        case 'today':
+                            return date.toDateString() === now.toDateString();
+                        case 'week':
+                            const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                            return date >= weekAgo;
+                        case 'month':
+                            return date.getMonth() === now.getMonth() && 
+                                   date.getFullYear() === now.getFullYear();
+                        case 'year':
+                            return date.getFullYear() === now.getFullYear();
+                        default:
+                            return true;
+                    }
+                });
+            }
+
+            // Filtrar por búsqueda
+            if (search) {
+                filtered = filtered.filter(s => 
+                    s.email.toLowerCase().includes(search) ||
+                    s.subject.toLowerCase().includes(search) ||
+                    (s.reviewedBy && s.reviewedBy.toLowerCase().includes(search))
+                );
+            }
+
+            renderSuggestions(filtered);
+            updateFilteredCount(filtered.length);
+        }
+
+        function clearFilters() {
+            document.getElementById('filterType').value = '';
+            document.getElementById('filterPeriod').value = '';
+            document.getElementById('searchInput').value = '';
+            renderSuggestions(allSuggestions);
+            updateFilteredCount(allSuggestions.length);
+        }
+
+        function updateFilteredCount(count) {
+            document.getElementById('filteredCount').textContent = count;
+        }
+
+        async function viewDetails(id) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`);
+                const result = await response.json();
+
+                if (result.success) {
+                    showDetailsModal(result.data);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al cargar los detalles', 'error');
+            }
+        }
+
+        function showDetailsModal(suggestion) {
+            const modal = document.getElementById('detailModal');
+            const modalBody = document.getElementById('modalBody');
+
+            const resolutionTime = calculateDays(suggestion.createdAt, suggestion.reviewedAt || suggestion.updatedAt);
+
+            modalBody.innerHTML = `
+                <h2>📋 Detalles de Sugerencia Resuelta</h2>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <strong>Email:</strong>
+                        <span>${suggestion.email}</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Tipo:</strong>
+                        <span class="badge badge-${suggestion.type}">${translateType(suggestion.type)}</span>
+                    </div>
+                    
+                    <div class="detail-item full-width">
+                        <strong>Asunto:</strong>
+                        <span>${suggestion.subject}</span>
+                    </div>
+                    
+                    <div class="detail-item full-width">
+                        <strong>Mensaje:</strong>
+                        <p class="message-text">${suggestion.message}</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Fecha de creación:</strong>
+                        <span>${formatDate(suggestion.createdAt)}</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Fecha de resolución:</strong>
+                        <span>${formatDate(suggestion.reviewedAt || suggestion.updatedAt)}</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Tiempo de resolución:</strong>
+                        <span>${resolutionTime} días</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <strong>Revisado por:</strong>
+                        <span>${suggestion.reviewedBy || 'Sistema'}</span>
+                    </div>
+                    
+                    ${suggestion.notes ? `
+                        <div class="detail-item full-width">
+                            <strong>Notas de seguimiento:</strong>
+                            <p class="message-text">${suggestion.notes}</p>
+                        </div>
+                    ` : ''}
+
+                    ${suggestion.hasOffensiveContent ? `
+                        <div class="detail-item full-width alert-danger">
+                            <strong>⚠️ Caso con contenido inapropiado</strong>
+                            <p>Severidad: ${translateSeverity(suggestion.severity)}</p>
+                            <p>Palabras detectadas: ${suggestion.offensiveWords.join(', ')}</p>
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="modal-actions">
+                    <button onclick="closeModal()" class="btn-primary">Cerrar</button>
+                    <button onclick="reopenCase('${suggestion._id}')" class="btn-secondary">🔄 Reabrir Caso</button>
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        async function reopenCase(id) {
+            if (!confirmAction('¿Reabrir este caso? Volverá al estado "En Revisión"')) return;
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        status: 'en_revision'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showNotification('Caso reabierto correctamente');
+                    closeModal();
+                    loadResolved();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Error al reabrir el caso', 'error');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        function exportResolved() {
+            exportToCSV(allSuggestions, 'sugerencias_resueltas.csv');
+            showNotification('Exportando sugerencias resueltas...');
+        }
+
+        // Cargar al inicio
+        loadResolved();
+
+        // Auto-actualizar cada minuto
+        setInterval(loadResolved, 60000);
+    </script>
+
+    <style>
+        .badge-green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-red {
+            background: #fecaca;
+            color: #991b1b;
+        }
+    </style>
+</body>
+</html>

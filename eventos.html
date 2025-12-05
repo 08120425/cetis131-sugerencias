@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - CETIS 131</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <i class="fas fa-phone"></i> 899-929-3769 | <i class="fas fa-envelope"></i> cetis131.escolares@dgeti.sems.gob.mx
+            </div>
+        </div>
+    </div>
+
+<!-- Header Premium -->
+    <header>
+        <div class="header-main">
+            <div class="logo-section">
+                <div class="logo-img floating" aria-label="Logo CETIS 131">131</div>
+                <div class="school-name">
+                    <h1>CETIS 131</h1>
+                    <p>Miguel Hidalgo y Costilla</p>
+                </div>
+            </div>
+
+            <!-- Navegación Principal -->
+            <nav class="main-nav" aria-label="Navegación principal">
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                        
+                        <li>
+                            <a href="#informacion-escolar" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-school"></i> Información Escolar <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Información Escolar</li>
+                                <li><a href="Especialidades.html"><i class="fas fa-cogs"></i> Especialidades</a></li>
+                                <li><a href="#instalaciones"><i class="fas fa-building"></i> Instalaciones</a></li>
+                                <li><a href="clubs.html"><i class="fas fa-running"></i> Clubs y Deportes</a></li>
+                                <li><a href="servicio-y-practicas.html"><i class="fas fa-handshake"></i> Servicio Social/Prácticas</a></li>
+                                <li><a href="extraordinarios.html"><i class="fas fa-file-alt"></i> Extraordinarios</a></li>
+                                <li><a href="nuevo-ingreso.html"><i class="fas fa-user-plus"></i> Nuevo Ingreso</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#novedades" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-newspaper"></i> Novedades <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Novedades</li>
+                                <li><a href="calendario.html"><i class="fas fa-calendar-alt"></i> Calendarios</a></li>
+                                <li><a href="eventos.html"><i class="fas fa-calendar-check"></i> Eventos</a></li>
+                                <li><a href="/www/cajasug.html"><i class="fas fa-box"></i> Caja de Sugerencias</a></li>
+                                <li><a href="#avisos"><i class="fas fa-bell"></i> Avisos</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="#conocenos" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-info-circle"></i> Conócenos <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-title">Conócenos</li>
+                                <li><a href="contactos.html"><i class="fas fa-address-book"></i> Contactos</a></li>
+                                <li><a href="acerca-de.html"><i class="fas fa-building"></i> Acerca de</a></li>
+                                <li><a href="avisos-privacidad.html"><i class="fas fa-shield-alt"></i> Avisos de Privacidad</a></li>
+                                <li><a href="reglamento.html"><i class="fas fa-book"></i> Reglamento</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <div class="header-actions">
+                <a href="nuevo-ingreso.html" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i> Nuevo Ingreso 2026
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero hero-secondary">
+        <div class="hero-content">
+            <h2>Eventos CETIS 131</h2>
+            <p class="subtitle">Descubre los eventos más importantes del año escolar</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: Eventos -->
+    <section id="calendarios" class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Calendario de Eventos</h2>
+                <p>Eventos destacados del año escolar. Haz clic en una tarjeta para ver detalles.</p>
+            </div>
+
+            <div class="cards-grid">
+
+                <!-- Evento 1 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="1">
+                        <div class="event-title-placeholder">Día del Estudiante Técnico</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Día del Estudiante Técnico</h3>
+                    </div>
+                    <div class="event-details" id="event-details-1">
+                        <p class="event-date">Fecha: 23 de Mayo, 2025</p>
+                        <p>Celebración dedicada a los estudiantes de carreras técnicas, con talleres, conferencias y actividades recreativas para fomentar el orgullo por la educación técnica y el desarrollo de habilidades prácticas.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 2 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="2">
+                        <div class="event-title-placeholder">Día de la Mujer</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Día de la Mujer</h3>
+                    </div>
+                    <div class="event-details" id="event-details-2">
+                        <p class="event-date">Fecha: 8 de Marzo, 2025</p>
+                        <p>Jornada de empoderamiento femenino con pláticas, talleres y eventos culturales que destacan el rol de las mujeres en la sociedad, la educación y la tecnología.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 3 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="3">
+                        <div class="event-title-placeholder">Día contra el Cáncer de Mama</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Día contra el Cáncer de Mama</h3>
+                    </div>
+                    <div class="event-details" id="event-details-3">
+                        <p class="event-date">Fecha: 19 de Octubre, 2025</p>
+                        <p>Campaña de concientización con charlas informativas, chequeos preventivos y actividades para promover la detección temprana y el apoyo a las afectadas.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 4 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="4">
+                        <div class="event-title-placeholder">Día de las Madres</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Día de las Madres</h3>
+                    </div>
+                    <div class="event-details" id="event-details-4">
+                        <p class="event-date">Fecha: 10 de Mayo, 2025</p>
+                        <p>Homenaje a las madres con eventos especiales, presentaciones artísticas y regalos simbólicos para reconocer su dedicación y apoyo.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 5 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="5">
+                        <div class="event-title-placeholder">Día del Castor</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Día del Castor</h3>
+                    </div>
+                    <div class="event-details" id="event-details-5">
+                        <p class="event-date">Fecha: 17 de Octubre, 2025</p>
+                        <p>Celebración temática en honor al castor, símbolo de ingenio y trabajo en equipo, con actividades educativas sobre medio ambiente y colaboración.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 6 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="6">
+                        <div class="event-title-placeholder">Concurso de Catrines y Catrinas</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Concurso de Catrines y Catrinas</h3>
+                    </div>
+                    <div class="event-details" id="event-details-6">
+                        <p class="event-date">Fecha: 1 de Noviembre, 2025</p>
+                        <p>Concurso de disfraces inspirados en el Día de Muertos, con premios para las mejores caracterizaciones y respeto por las tradiciones mexicanas.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 7 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="7">
+                        <div class="event-title-placeholder">Día de la Independencia</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Día de la Independencia</h3>
+                    </div>
+                    <div class="event-details" id="event-details-7">
+                        <p class="event-date">Fecha: 16 de Septiembre, 2025</p>
+                        <p>Conmemoración patriótica con desfiles, actos cívicos y actividades educativas sobre la historia de México y sus héroes de la independencia.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 8 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="8">
+                        <div class="event-title-placeholder">Día de la Revolución</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Día de la Revolución</h3>
+                    </div>
+                    <div class="event-details" id="event-details-8">
+                        <p class="event-date">Fecha: 20 de Noviembre, 2025</p>
+                        <p>Evento cívico con representaciones históricas, desfiles y discusiones sobre justicia social, democracia y los ideales revolucionarios.</p>
+                    </div>
+                </div>
+
+                <!-- Evento 9 -->
+                <div class="card reveal">
+                    <div class="event-image" data-event-id="9">
+                        <div class="event-title-placeholder">Graduación</div>
+                        <div class="event-overlay">Más información</div>
+                    </div>
+                    <div class="news-content">
+                        <h3>Graduación Generación 2025</h3>
+                    </div>
+                    <div class="event-details" id="event-details-9">
+                        <p class="event-date">Fecha: 15 de Julio, 2025</p>
+                        <p>Ceremonia de cierre con entrega de diplomas, discursos inspiradores y celebración familiar por los logros académicos de los egresados.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-left">
+                <h3>CETIS 131</h3>
+                <p>Miguel Hidalgo y Costilla</p>
+                <div class="footer-contact" style="margin-top:18px;">
+                    <p><i class="fas fa-phone"></i>899-929-3769</p>
+                    <p><i class="fas fa-envelope"></i>cetis131.escolares@dgeti.sems.gob.mx</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Décima s/n Granjas Económicas del Norte, Reynosa, México, 88730</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>PLANTEL</h3>
+                <ul>
+                    <li><a href="index.html#acerca">Acerca de</a></li>
+                    <li><a href="#mensaje">Mensaje del Director</a></li>
+                    <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                    <li><a href="#historia">Reseña Histórica</a></li>
+                    <li><a href="#egresados">Egresados Destacados</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>ALUMNOS</h3>
+                <ul>
+                    <li><a href="#oferta">Oferta Educativa</a></li>
+                    <li><a href="#servicio-social">Servicio Social</a></li>
+                    <li><a href="#practicas">Servicio Profesional</a></li>
+                    <li><a href="#titulacion">Titulación</a></li>
+                    <li><a href="nuevo-ingreso.html">Requisitos Nuevo Ingreso</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>SITIOS DE INTERÉS</h3>
+                <ul>
+                    <li><a href="#calificaciones">Consulta de Calificaciones</a></li>
+                    <li><a href="#prepa-linea">Prepa en Línea</a></li>
+                    <li><a href="#dgeti">DGETI</a></li>
+                    <li><a href="#autoservicios">Portal de Autoservicios</a></li>
+                    <li><a href="#edumedia">Edumedia TICs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 CETIS 131 – Todos los derechos reservados
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>

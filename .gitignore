@@ -1,0 +1,23 @@
+"
+# Variables de entorno (NUNCA subir el real)
+.env
+
+# Carpetas de node
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Carpetas de build de Android/Capacitor
+/android/
+/ios/
+/build/
+/dist/
+
+# Archivos de Android Studio
+*.iml
+.gradle
+local.properties
+*.hprof
+.cxx
+" >> .gitignore
