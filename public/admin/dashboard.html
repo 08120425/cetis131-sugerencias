@@ -132,7 +132,7 @@
         async function loadDashboard() {
             try {
                 // Cargar estadísticas
-                const statsRes = await fetch('http://localhost:3000/api/suggestions/stats');
+                const statsRes = await fetch('https://cetis131-sugerencias.onrender.com/api/suggestions/stats');
                 const stats = await statsRes.json();
 
                 if (stats.success) {
@@ -162,7 +162,7 @@
                 }
 
                 // Cargar sugerencias recientes
-                const suggestionsRes = await fetch('http://localhost:3000/api/suggestions?limit=10');
+                const suggestionsRes = await fetch('https://cetis131-sugerencias.onrender.com/api/suggestions?limit=10');
                 const suggestions = await suggestionsRes.json();
 
                 if (suggestions.success) {

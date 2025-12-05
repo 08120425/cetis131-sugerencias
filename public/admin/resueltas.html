@@ -167,7 +167,7 @@
 
         async function loadResolved() {
             try {
-                const response = await fetch('http://localhost:3000/api/suggestions?status=resuelto');
+                const response = await fetch('https://cetis131-sugerencias.onrender.com//api/suggestions?status=resuelto');
                 const result = await response.json();
 
                 if (result.success) {
@@ -314,7 +314,7 @@
 
         async function viewDetails(id) {
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`);
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`);
                 const result = await response.json();
 
                 if (result.success) {
@@ -404,7 +404,7 @@
             if (!confirmAction('¿Reabrir este caso? Volverá al estado "En Revisión"')) return;
 
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`, {
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

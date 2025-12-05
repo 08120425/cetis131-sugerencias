@@ -153,7 +153,7 @@
 
         async function loadOffensive() {
             try {
-                const response = await fetch('http://localhost:3000/api/suggestions?hasOffensive=true');
+                const response = await fetch('https://cetis131-sugerencias.onrender.com/api/suggestions?hasOffensive=true');
                 const result = await response.json();
 
                 if (result.success) {
@@ -246,7 +246,7 @@
 
         async function viewInvestigation(id) {
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`);
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`);
                 const result = await response.json();
 
                 if (result.success) {
@@ -367,7 +367,7 @@
 
         async function updateCase(id, data, successMsg) {
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`, {
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)

@@ -118,7 +118,7 @@
 
         async function loadPending() {
             try {
-                const response = await fetch('http://localhost:3000/api/suggestions?status=pendiente');
+                const response = await fetch('https://cetis131-sugerencias.onrender.com/api/suggestions?status=pendiente');
                 const result = await response.json();
 
                 if (result.success) {
@@ -190,7 +190,7 @@
 
         async function viewQuick(id) {
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`);
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`);
                 const result = await response.json();
 
                 if (result.success) {
@@ -244,7 +244,7 @@
             if (!confirmAction('¿Marcar esta sugerencia como revisada?')) return;
 
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`, {
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -270,7 +270,7 @@
             if (!confirmAction('¿Marcar esta sugerencia como resuelta?')) return;
 
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`, {
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

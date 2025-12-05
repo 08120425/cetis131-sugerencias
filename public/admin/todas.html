@@ -131,7 +131,7 @@
 
         async function loadSuggestions() {
             try {
-                const response = await fetch('http://localhost:3000/api/suggestions');
+                const response = await fetch('https://cetis131-sugerencias.onrender.com/api/suggestions');
                 const result = await response.json();
 
                 if (result.success) {
@@ -215,7 +215,7 @@
 
         async function viewDetails(id) {
             try {
-                const response = await fetch(`http://localhost:3000/api/suggestions/${id}`);
+                const response = await fetch(`https://cetis131-sugerencias.onrender.com/api/suggestions/${id}`);
                 const result = await response.json();
 
                 if (result.success) {
