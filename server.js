@@ -57,12 +57,11 @@ app.use('/api/suggestions', (req, res, next) => {
 // ========================
 // SERVIR ARCHIVOS ESTÁTICOS
 // ========================
-
 // 1. Página principal del CETIS 131 (raíz del proyecto)
 app.use(express.static(path.join(__dirname)));
 
-// 2. Caja de sugerencias pública
-app.use('/caja-sugerencias', express.static(path.join(__dirname, 'caja_sugerencias', 'public')));
+// 2. Caja de sugerencias pública desde carpeta www
+app.use('/caja-sugerencias', express.static(path.join(__dirname, 'www')));
 
 // 3. Panel de administración
 app.use('/admin', express.static(path.join(__dirname, 'public', 'admin')));
@@ -70,15 +69,14 @@ app.use('/admin', express.static(path.join(__dirname, 'public', 'admin')));
 // ========================
 // RUTAS ESPECÍFICAS
 // ========================
-
 // Raíz → index.html del CETIS 131
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Caja de sugerencias - formulario público
+// Caja de sugerencias - formulario público (carga cajasug.html)
 app.get('/caja-sugerencias', (req, res) => {
-  res.sendFile(path.join(__dirname, 'caja_sugerencias', 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'www', 'cajasug.html'));
 });
 
 // Admin dashboard
@@ -98,7 +96,7 @@ app.use('/api/suggestions', require('./routes/suggestions')); // Ajusta la ruta 
 // SPA FALLBACK (importante para que funcione el menú del CETIS)
 // ========================
 app.get('*', (req, res) => {
-  // Si la ruta empieza con /api o /admin, no hacemos fallback
+  // Si la ruta empieza con /api, /admin o /caja-sugerencias, no hacemos fallback
   if (req.path.startsWith('/api') || req.path.startsWith('/admin') || req.path.startsWith('/caja-sugerencias')) {
     return res.status(404).json({ success: false, message: 'Ruta no encontrada' });
   }
@@ -125,17 +123,16 @@ app.use((err, req, res, next) => {
 // INICIAR SERVIDOR
 // ========================
 const PORT = process.env.PORT || 5000;
-
 const server = app.listen(PORT, () => {
   console.clear();
   console.log('═══════════════════════════════════════════════════');
-  console.log('     APP OFICIAL CETIS 131 + CAJA DE SUGERENCIAS');
+  console.log(' APP OFICIAL CETIS 131 + CAJA DE SUGERENCIAS');
   console.log('═══════════════════════════════════════════════════');
   console.log(`Puerto: ${PORT}`);
-  console.log(`Web principal:     http://localhost:${PORT}`);
-  console.log(`Caja sugerencias:  http://localhost:${PORT}/caja-sugerencias`);
-  console.log(`Panel admin:       http://localhost:${PORT}/admin`);
-  console.log(`API:               http://localhost:${PORT}/api`);
+  console.log(`Web principal: http://localhost:${PORT}`);
+  console.log(`Caja sugerencias: http://localhost:${PORT}/caja-sugerencias`);
+  console.log(`Panel admin: http://localhost:${PORT}/admin`);
+  console.log(`API: http://localhost:${PORT}/api`);
   console.log('═══════════════════════════════════════════════════');
 });
 
